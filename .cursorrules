@@ -1,0 +1,265 @@
+# 🏛️ REGLAS DE ORO - CYVENTRA PROJECT
+
+## 🎯 PRINCIPIOS FUNDAMENTALES
+
+### 0. FLUJO DE TRABAJO CON EL USUARIO
+- **NO ejecutar cambios en el código sin aprobación explícita del usuario**
+- Proponer cambios, explicar el impacto y esperar confirmación
+- Solo sugerir soluciones, no implementarlas automáticamente
+- El usuario debe aprobar antes de cualquier modificación
+
+### 1. ARQUITECTURA EN CAPAS (MVC + Service Layer)
+- **Controladores**: Solo manejan HTTP (req, res). Sin lógica de negocio.
+- **Servicios**: Contienen toda la lógica de negocio y acceso a datos.
+- **Rutas**: Solo definición de endpoints y vinculación a controladores.
+- **Separación estricta**: Controlador → Servicio → Base de datos.
+
+### 2. ESTRUCTURA DE PROYECTO DUAL
+```
+├── src/
+│   ├── pages/          # React pages/views
+│   ├── components/     # React components reutilizables
+│   ├── banners/        # Componentes de banners
+│   ├── config/         # Configuraciones frontend
+│   ├── server/
+│   │   ├── controllers/  # Manejadores HTTP
+│   │   ├── services/     # Lógica de negocio
+│   │   ├── routes/       # Definición de rutas API
+│   │   ├── db.js         # PostgreSQL pool
+│   │   └── index.js      # Express + Serverless entry
+```
+
+### 3. STACK TECNOLÓGICO
+- **Frontend**: React 19 + Vite + React Router DOM
+- **Backend**: Express 5 + Node.js 20 (ESM)
+- **Base de datos**: PostgreSQL con pool de conexiones
+- **Deployment**: AWS Lambda (Serverless Framework) + S3 + CloudFront
+- **Estilos**: Bootstrap 5 + SCSS + CSS personalizado
+- **i18n**: react-i18next para multilenguaje
+
+### 4. PATRONES DE CÓDIGO
+
+#### Backend (Node.js ESM)
+```javascript
+// ✅ CORRECTO - Service Pattern
+export async function fetchBlogsByLang(langCode) {
+    const result = await db.query('SELECT...', [langCode]);
+    return result.rows.map(row => ({...}));
+}
+
+// ✅ CORRECTO - Controller Pattern
+export async function getAbouts(req, res) {
+    try {
+        const lang = req.query.lang_code || 'en';
+        const data = await fetchBlogsByLang(lang);
+        res.json(data);
+    } catch (err) {
+        console.error('Error:', err);
+        res.status(500).json({ error: 'Internal server error' });
+    }
+}
+```
+
+#### Frontend (React)
+```javascript
+// ✅ CORRECTO - Functional Components
+import { useState, useEffect } from 'react';
+
+export default function MyComponent() {
+    const [data, setData] = useState([]);
+    
+    useEffect(() => {
+        // Fetch data
+    }, []);
+    
+    return <div>...</div>;
+}
+```
+
+### 5. CONVENCIONES DE NOMENCLATURA
+
+#### Backend
+- **Archivos**: camelCase (`blogController.js`, `blogService.js`)
+- **Funciones**: 
+  - Controllers: `getAbouts`, `createJob`, `updateService`
+  - Services: `fetchBlogsByLang`, `createJobApplication`
+- **Rutas**: REST convencional (`/api/blogs`, `/api/jobs/:id`)
+
+#### Frontend
+- **Componentes**: PascalCase (`BlogCard.jsx`, `Navbar.jsx`)
+- **Páginas**: PascalCase (`Home.jsx`, `About.jsx`)
+- **Funciones**: camelCase (`handleSubmit`, `fetchData`)
+- **Constantes**: UPPER_SNAKE_CASE (`API_BASE_URL`)
+
+### 6. BASE DE DATOS
+
+#### Esquema
+- **Schema**: `cyventra`
+- **Convención**: snake_case para tablas y columnas
+- **Relaciones**: Usar JOINs explícitos, evitar N+1 queries
+- **Traducciones**: Pattern de tabla `_translation` para contenido multilenguaje
+
+#### Queries
+```javascript
+// ✅ CORRECTO - Query optimizado con agregación
+const result = await db.query(`
+    SELECT 
+        bpt.id, bpt.title, bpt.content,
+        COALESCE(json_agg(...) FILTER (WHERE ci.id IS NOT NULL), '[]'::json) as images
+    FROM cyventra.blog_post_translation bpt
+    LEFT JOIN cyventra.content_image ci ON ci.blog_post_id = bpt.blog_post_id
+    WHERE bpt.lang_code = $1
+    GROUP BY bpt.id
+`, [langCode]);
+
+// ❌ INCORRECTO - SQL injection vulnerable
+const result = await db.query(`SELECT * FROM users WHERE id = ${userId}`);
+```
+
+### 7. MANEJO DE ERRORES
+
+```javascript
+// ✅ CORRECTO - Error handling completo
+export async function myController(req, res) {
+    try {
+        const data = await myService();
+        res.json(data);
+    } catch (err) {
+        console.error('Error en myController:', err);
+        res.status(500).json({ error: 'Internal server error' });
+    }
+}
+
+// ❌ INCORRECTO - Sin manejo de errores
+export async function myController(req, res) {
+    const data = await myService();
+    res.json(data);
+}
+```
+
+### 8. DEPLOYMENT & ENVIRONMENT
+
+#### Variables de entorno
+- `DATABASE_URL`: PostgreSQL connection string
+- `NODE_ENV`: `development` | `production`
+- Usar `dotenv` en desarrollo
+- Variables inyectadas via Serverless en AWS Lambda
+
+#### Scripts críticos
+```bash
+npm run dev              # Desarrollo local (frontend + backend)
+npm run deploy:aws       # Build + Deploy completo a AWS
+npm run deploy:backend   # Deploy solo Lambda
+npm run deploy:frontend  # Deploy solo S3/CloudFront
+```
+
+### 9. API REST CONVENTIONS
+
+```javascript
+// ✅ CORRECTO - RESTful endpoints
+GET    /api/blogs?lang_code=en
+GET    /api/blogs/:slug?lang_code=en
+POST   /api/apply
+GET    /api/jobs/:id
+PUT    /api/services/:id
+DELETE /api/sections/:id
+
+// ✅ CORRECTO - Query params para filtros
+const lang = req.query.lang_code || 'en';
+const page = parseInt(req.query.page) || 1;
+
+// ❌ INCORRECTO - Rutas no RESTful
+GET /api/getBlogBySlug
+POST /api/createNewJob
+```
+
+### 10. PERFORMANCE & OPTIMIZATION
+
+#### Frontend
+- Usar `LazyImage` component para lazy loading
+- Código de imágenes optimizado con Sharp
+- Route-based code splitting con React Router
+
+#### Backend
+- PostgreSQL connection pooling (max: 10 conexiones)
+- Timeouts configurados (connection: 2s, idle: 30s)
+- Agregación de datos en queries (evitar múltiples llamadas)
+
+#### AWS Lambda
+- Memory: 512MB
+- Timeout: 30s
+- Package optimization con exclusiones en `serverless.yml`
+
+### 11. INTERNACIONALIZACIÓN (i18n)
+
+```javascript
+// ✅ CORRECTO - Uso de i18next
+import { useTranslation } from 'react-i18next';
+
+function MyComponent() {
+    const { t, i18n } = useTranslation();
+    return <h1>{t('welcome.title')}</h1>;
+}
+
+// Backend - Filtrado por lang_code
+const lang = req.query.lang_code || 'en';
+```
+
+### 12. SEGURIDAD
+
+- **CORS**: Habilitado en Express
+- **SQL Injection**: Usar queries parametrizadas siempre
+- **Environment**: Nunca commitear `.env` files
+- **SSL**: Habilitado en production (PostgreSQL + HTTPS)
+- **Validation**: Validar inputs en controladores
+
+### 13. GIT & VERSION CONTROL
+
+- **NO modificar**: `.gitignore` existente
+- **NO commitear**: 
+  - `node_modules/`
+  - `.env`
+  - `dist/`
+  - Archivos temporales de deployment
+- **Commits**: Descriptivos y en español o inglés consistente
+
+### 14. TESTING & QUALITY
+
+```bash
+npm run lint              # ESLint check
+npm run backend:offline   # Test Lambda locally
+```
+
+- ESLint configurado con React hooks y React refresh plugins
+- Serverless offline para testing local de Lambda
+
+### 15. PROHIBICIONES ABSOLUTAS
+
+❌ **NUNCA**:
+- Mezclar lógica de negocio en controladores
+- Hacer queries directos desde controladores
+- Usar `var` (solo `const` y `let`)
+- Commitear credenciales o secrets
+- Usar CommonJS (`require`) en este proyecto (ES Modules only)
+- Crear componentes de clase en React (solo functional)
+- Modificar estructura de carpetas sin consultar
+
+---
+
+## 🎭 ROL DEL ARQUITECTO
+
+Como arquitecto de software experto:
+1. **Mantén la separación de responsabilidades**
+2. **Sigue los patterns establecidos** (no inventes nuevos sin razón)
+3. **Optimiza para serverless** (stateless, cold starts, timeouts)
+4. **Prioriza escalabilidad** (pool connections, caching, aggregations)
+5. **Documenta cambios arquitectónicos** significativos
+6. **Revisa performance** de queries y componentes React
+7. **Valida seguridad** en cada endpoint nuevo
+
+---
+
+**Fecha de creación**: Diciembre 2025  
+**Proyecto**: Cyventra Corporate Website  
+**Stack**: React + Express + PostgreSQL + AWS Lambda
+
