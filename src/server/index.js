@@ -2,6 +2,7 @@ import express from 'express'
 import serverless from "serverless-http";
 
 import cors from 'cors'
+import rateLimit from 'express-rate-limit'
 import sectionRoutes from './routes/sectionRoutes.js'
 import aboutRoutes from './routes/aboutRoutes.js'
 import contactRoutes from './routes/contactRoutes.js'
@@ -41,7 +42,49 @@ app.use(cors({
 
 app.use(express.json())
 
-// Health check endpoint
+// ===== RATE LIMITING CONFIGURATION =====
+
+// 1. Rate limiter general para toda la API
+const generalLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutos
+  max: 100, // 100 requests por ventana
+  message: {
+    error: 'Too many requests from this IP, please try again later.',
+    retryAfter: '15 minutes'
+  },
+  standardHeaders: true, // Return rate limit info in `RateLimit-*` headers
+  legacyHeaders: false, // Disable `X-RateLimit-*` headers
+});
+
+// 2. Rate limiter MUY RESTRICTIVO para formularios
+const formLimiter = rateLimit({
+  windowMs: 60 * 60 * 1000, // 1 hora
+  max: 5, // Solo 5 requests por hora
+  message: {
+    error: 'Too many submissions from this IP. Please try again in 1 hour.',
+    retryAfter: '1 hour'
+  },
+  standardHeaders: true,
+  legacyHeaders: false,
+  skipSuccessfulRequests: false, // Contar incluso requests exitosos
+});
+
+// 3. Rate limiter MEDIO para endpoints de lectura pública
+const readLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutos
+  max: 50, // 50 requests
+  message: {
+    error: 'Too many requests, please slow down.',
+    retryAfter: '15 minutes'
+  },
+  standardHeaders: true,
+  legacyHeaders: false,
+});
+
+// Aplicar rate limiter general a toda la API
+app.use('/api/', generalLimiter);
+
+// Health check endpoint (sin rate limit)
 app.get('/health', (req, res) => {
   res.json({ 
     status: 'ok', 
@@ -50,16 +93,17 @@ app.get('/health', (req, res) => {
   })
 })
 
-app.use('/api/sections', sectionRoutes)
-app.use('/api/abouts', aboutRoutes)
-app.use('/api/contacts', contactRoutes)
-app.use('/api/services', serviceRoutes)
-app.use('/api/blogs', blogRoutes)
-app.use('/api/languages', languageRoutes)
-app.use('/api/benefits', benefitsRoutes)
-app.use('/api/jobs', jobsRoutes)
-app.use('/api/apply', jobApplicationRoutes)
-app.use('/api/company', companyRoutes)
+// API Routes con rate limiters específicos
+app.use('/api/sections', readLimiter, sectionRoutes)
+app.use('/api/abouts', readLimiter, aboutRoutes)
+app.use('/api/contacts', formLimiter, contactRoutes)      // ← CRÍTICO: 5/hora
+app.use('/api/services', readLimiter, serviceRoutes)
+app.use('/api/blogs', readLimiter, blogRoutes)
+app.use('/api/languages', languageRoutes)                 // ← Sin límite extra (solo general)
+app.use('/api/benefits', readLimiter, benefitsRoutes)
+app.use('/api/jobs', readLimiter, jobsRoutes)
+app.use('/api/apply', formLimiter, jobApplicationRoutes) // ← CRÍTICO: 5/hora
+app.use('/api/company', readLimiter, companyRoutes)
 
 
 if (process.env.NODE_ENV !== 'lambda') {
