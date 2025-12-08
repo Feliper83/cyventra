@@ -37,7 +37,7 @@ export default function Solution() {
             </div>
             <button
                 className="btn btn-primary"
-                onClick={() => navigate("/blogs")}
+                onClick={() => navigate("/blogs-new")}
             >
                 ← Volver a blogs
             </button>

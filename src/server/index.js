@@ -43,42 +43,52 @@ app.use(cors({
 app.use(express.json())
 
 // ===== RATE LIMITING CONFIGURATION =====
+// Skip rate limiting in development/localhost
+const skipRateLimit = (req) => {
+  const isDevelopment = process.env.NODE_ENV === 'development' || !process.env.NODE_ENV;
+  const isLocalhost = req.ip === '127.0.0.1' || req.ip === '::1' || req.ip === '::ffff:127.0.0.1';
+  const isLocalOrigin = req.headers.origin && req.headers.origin.includes('localhost');
+  return isDevelopment || isLocalhost || isLocalOrigin;
+};
 
 // 1. Rate limiter general para toda la API
 const generalLimiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutos
-  max: 100, // 100 requests por ventana
+  max: 1000, // Aumentado para desarrollo
   message: {
     error: 'Too many requests from this IP, please try again later.',
     retryAfter: '15 minutes'
   },
-  standardHeaders: true, // Return rate limit info in `RateLimit-*` headers
-  legacyHeaders: false, // Disable `X-RateLimit-*` headers
+  standardHeaders: true,
+  legacyHeaders: false,
+  skip: skipRateLimit, // Skip en desarrollo/localhost
 });
 
 // 2. Rate limiter MUY RESTRICTIVO para formularios
 const formLimiter = rateLimit({
   windowMs: 60 * 60 * 1000, // 1 hora
-  max: 5, // Solo 5 requests por hora
+  max: 10, // Aumentado de 5 a 10
   message: {
     error: 'Too many submissions from this IP. Please try again in 1 hour.',
     retryAfter: '1 hour'
   },
   standardHeaders: true,
   legacyHeaders: false,
-  skipSuccessfulRequests: false, // Contar incluso requests exitosos
+  skipSuccessfulRequests: false,
+  skip: skipRateLimit, // Skip en desarrollo/localhost
 });
 
 // 3. Rate limiter MEDIO para endpoints de lectura pública
 const readLimiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutos
-  max: 50, // 50 requests
+  max: 500, // Aumentado de 50 a 500 para desarrollo
   message: {
     error: 'Too many requests, please slow down.',
     retryAfter: '15 minutes'
   },
   standardHeaders: true,
   legacyHeaders: false,
+  skip: skipRateLimit, // Skip en desarrollo/localhost
 });
 
 // Aplicar rate limiter general a toda la API

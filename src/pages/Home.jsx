@@ -8,7 +8,8 @@ import "../i18n";
 import {useEffect, useState} from "react";
 import {useLanguage} from "./LanguageProvider.jsx";
 import { apiUrl } from '../config/api.js';
-import LazyImage from '../components/LazyImage.jsx'; // inicializa las traducciones
+import LazyImage from '../components/LazyImage.jsx';
+import { Link } from 'react-router-dom'; // inicializa las traducciones
 
 
 
@@ -62,6 +63,38 @@ export default function Home() {
 
     return (
         <>
+            {/* Botón flotante para ver nuevo diseño */}
+            <Link 
+                to="/home-new" 
+                style={{
+                    position: 'fixed',
+                    bottom: '20px',
+                    right: '20px',
+                    zIndex: 9999,
+                    padding: '15px 25px',
+                    background: 'linear-gradient(135deg, #10B981 0%, #14B8A6 100%)',
+                    color: 'white',
+                    borderRadius: '50px',
+                    textDecoration: 'none',
+                    fontWeight: 'bold',
+                    boxShadow: '0 10px 25px rgba(16, 185, 129, 0.4)',
+                    transition: 'all 0.3s ease',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '10px'
+                }}
+                onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = 'translateY(-5px)';
+                    e.currentTarget.style.boxShadow = '0 15px 35px rgba(16, 185, 129, 0.5)';
+                }}
+                onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = 'translateY(0)';
+                    e.currentTarget.style.boxShadow = '0 10px 25px rgba(16, 185, 129, 0.4)';
+                }}
+            >
+                ✨ Ver Nuevo Diseño
+            </Link>
+
             <header className="header position-relative min-vh-100 d-flex align-items-center">
                 <LazyImage
                     src="/images/vertical-decoration-left.svg"

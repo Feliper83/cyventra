@@ -9,6 +9,8 @@ i18n
                 translation: {
                     home: "Home",
                     solutions: "Solutions",
+                    solutions_title: "Our Solutions",
+                    solutions_view: "View more",
                     about: "About Us",
                     growth: "Professional growth",
                     blog: "CybeBlog",
@@ -17,13 +19,29 @@ i18n
                     description:
                         "Boost your business with cutting-edge software solutions tailored to the needs of modern enterprises.",
                     button: "Learn More",
+                    hero: {
+                        badge: "Leading Tech Solutions in USA & LATAM",
+                        title_part1: "Transforming Ideas into",
+                        title_highlight: "Innovative Software",
+                        description: "We develop custom technology solutions that drive your business growth. Experts in software development, cloud computing, AI and automation.",
+                        cta_primary: "Start Project",
+                        cta_secondary: "View Solutions"
+                    },
+                    stats: {
+                        projects: "Completed Projects",
+                        clients: "Satisfied Clients",
+                        satisfaction: "Satisfaction"
+                    },
                     navbar: {
                         contact_menu: "Contact"
 
                     },
                     blogs:{
                         lookArticle: "View article",
-                        notAvailable: "There are not blogs available"
+                        notAvailable: "There are not blogs available",
+                        title: "Our Blogs",
+                        subtitle: "Discover articles about technology, software development, innovation and best practices in the industry.",
+                        backToBlogs: "Back to Blogs"
                     },
                     contact: {
                         title: "Contacts",
@@ -31,7 +49,14 @@ i18n
                         name: "Name",
                         email: "Email",
                         phone: "Phone",
-                        message: "Message"
+                        message: "Message",
+                        subtitle: "We're here to help. Send us a message and we'll get back to you as soon as possible.",
+                        name_placeholder: "Your full name",
+                        email_placeholder: "your@email.com",
+                        phone_placeholder: "+1 (555) 123-4567",
+                        message_placeholder: "Tell us about your project...",
+                        success: "Message sent successfully!",
+                        optional: "optional"
                     },
                     jobs: {
                       title: "Employment opportunities",
@@ -67,6 +92,8 @@ i18n
                 translation: {
                     home: "Inicio",
                     solutions: "Soluciones",
+                    solutions_title: "Nuestras Soluciones",
+                    solutions_view: "Ver más",
                     about: "Sobre nosotros",
                     growth: "Crecimiento profesional",
                     blog: "CybeBlog",
@@ -75,12 +102,28 @@ i18n
                     description:
                         "Impulsa tu negocio con soluciones de software innovadoras adaptadas a las necesidades de las empresas modernas.",
                     button: "Saber más",
+                    hero: {
+                        badge: "Líderes en Soluciones Tecnológicas en USA & LATAM",
+                        title_part1: "Transformando Ideas en",
+                        title_highlight: "Software Innovador",
+                        description: "Desarrollamos soluciones tecnológicas personalizadas que impulsan el crecimiento de tu negocio. Expertos en desarrollo de software, cloud computing, IA y automatización.",
+                        cta_primary: "Comenzar Proyecto",
+                        cta_secondary: "Ver Soluciones"
+                    },
+                    stats: {
+                        projects: "Proyectos Completados",
+                        clients: "Clientes Satisfechos",
+                        satisfaction: "Satisfacción"
+                    },
                     navbar: {
                         contact_menu: "Contacto"
                     },
                     blogs:{
                         lookArticle: "Ver Articulo",
-                        notAvailable: "No hay blogs disponibles"
+                        notAvailable: "No hay blogs disponibles",
+                        title: "Nuestros Blogs",
+                        subtitle: "Descubre artículos sobre tecnología, desarrollo de software, innovación y mejores prácticas en la industria.",
+                        backToBlogs: "Volver a Blogs"
                     },
                     contact: {
                         title: "Contactos",
@@ -88,7 +131,14 @@ i18n
                         name: "Nombre",
                         email: "Email",
                         phone: "Telefono",
-                        message: "Mensaje"
+                        message: "Mensaje",
+                        subtitle: "Estamos aquí para ayudarte. Envíanos un mensaje y te responderemos lo antes posible.",
+                        name_placeholder: "Tu nombre completo",
+                        email_placeholder: "tu@email.com",
+                        phone_placeholder: "+1 (555) 123-4567",
+                        message_placeholder: "Cuéntanos sobre tu proyecto...",
+                        success: "¡Mensaje enviado exitosamente!",
+                        optional: "opcional"
                     },
                     jobs: {
                         title: "Opotunidades de empleo",
@@ -121,8 +171,8 @@ i18n
                 }
             }
         },
-        lng: "es", // idioma inicial
-        fallbackLng: "en",
+        lng: "en", // idioma inicial
+        fallbackLng: "es",
         interpolation: { escapeValue: false }
     });
 

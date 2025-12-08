@@ -1,0 +1,15 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Simplified outer ring -->
+  <circle cx="32" cy="32" r="28" stroke="#10B981" stroke-width="2" fill="none" opacity="0.25"/>
+  
+  <!-- Main "C" shape - cleaner and bolder -->
+  <path d="M32 14 C18 14 10 22 10 32 C10 42 18 50 32 50" stroke="#10B981" stroke-width="4" stroke-linecap="round" fill="none"/>
+  
+  <!-- Simplified tech circuit lines - only 2 -->
+  <line x1="18" y1="26" x2="26" y2="26" stroke="#34D399" stroke-width="2.5" stroke-linecap="round" opacity="0.7"/>
+  <line x1="18" y1="38" x2="26" y2="38" stroke="#34D399" stroke-width="2.5" stroke-linecap="round" opacity="0.7"/>
+  
+  <!-- Single accent dot -->
+  <circle cx="38" cy="32" r="2.5" fill="#34D399" opacity="0.9"/>
+</svg>
+

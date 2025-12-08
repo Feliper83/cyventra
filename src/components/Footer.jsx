@@ -1,12 +1,25 @@
 import { useTranslation } from "react-i18next";
 import "../i18n";
-import {Link} from "react-router-dom";
+import {Link, useLocation} from "react-router-dom";
+import '../styles/cyventra-theme.css';
+import { useEffect, useState } from 'react';
 
 export default function Footer() {
     const { t, i18n } = useTranslation();
+    const location = useLocation();
+    const [isNewDesign, setIsNewDesign] = useState(false);
+
+    useEffect(() => {
+        const newDesignRoutes = ['/home-new', '/solutions-new', '/about-new', '/career-new', '/contact-new', '/blogs-new', '/blog'];
+        setIsNewDesign(newDesignRoutes.includes(location.pathname));
+    }, [location]);
+
+    const footerClass = isNewDesign 
+        ? "footer cyv-footer py-6 text-white" 
+        : "footer py-6 bg-dark text-white";
 
     return (
-        <footer className="footer py-6 bg-dark text-white">
+        <footer className={footerClass}>
             <div className="container">
                 <div className="row">
 
@@ -25,11 +38,11 @@ export default function Footer() {
                             <i className="fas fa-link me-2"></i>{t("footer.links_title")}
                         </h6>
                         <ul className="list-unstyled">
-                            <li><Link to="/">{t("footer.link_home")}</Link></li>
-                            <li><Link to="/solution">{t("footer.link_solutions")}</Link></li>
-                            <li><Link to="/about">{t("footer.link_abouts")}</Link></li>
-                            <li><Link to="/careergrowth">{t("footer.link_careers")}</Link></li>
-                            <li><Link to="/blogs">{t("footer.link_blogs")}</Link></li>
+                            <li><Link to="/home-new">{t("footer.link_home")}</Link></li>
+                            <li><Link to="/solutions-new">{t("footer.link_solutions")}</Link></li>
+                            <li><Link to="/about-new">{t("footer.link_abouts")}</Link></li>
+                            <li><Link to="/career-new">{t("footer.link_careers")}</Link></li>
+                            <li><Link to="/blogs-new">{t("footer.link_blogs")}</Link></li>
                         </ul>
                     </div>
 
@@ -39,7 +52,7 @@ export default function Footer() {
                             <i className="fas fa-envelope me-2"></i>{t("footer.contact_title")}
                         </h6>
                         <p>
-                            <a href="mailto:contact@cyventrasoft.com" className="text-white">
+                            <a href="mailto:contact@cyventrasoft.com">
                                 contact@cyventrasoft.com
                             </a>
                         </p>
@@ -49,18 +62,36 @@ export default function Footer() {
                             <a href="#"><i className="fab fa-instagram fa-2x me-3"></i></a>
                             <a href="#"><i className="fab fa-linkedin fa-2x"></i></a>
                         </div>
-                        <Link className="btn btn-primary btn-sm" to="/contact">{t("footer.contact_cta")}</Link>
+                        <Link 
+                            className="btn btn-sm" 
+                            to="/contact-new"
+                            style={{
+                                background: isNewDesign ? 'var(--cyv-gradient-primary)' : '',
+                                border: 'none'
+                            }}
+                        >
+                            {t("footer.contact_cta")}
+                        </Link>
+                        
                         {/* Language Switch */}
                         <div className="mt-3">
                             <button
                                 className="btn btn-outline-light btn-sm me-2"
                                 onClick={() => i18n.changeLanguage("en")}
+                                style={{
+                                    borderColor: isNewDesign ? 'var(--cyv-primary)' : '',
+                                    color: isNewDesign ? 'var(--cyv-primary)' : ''
+                                }}
                             >
                                 English
                             </button>
                             <button
                                 className="btn btn-outline-light btn-sm"
                                 onClick={() => i18n.changeLanguage("es")}
+                                style={{
+                                    borderColor: isNewDesign ? 'var(--cyv-primary)' : '',
+                                    color: isNewDesign ? 'var(--cyv-primary)' : ''
+                                }}
                             >
                                 Español
                             </button>
@@ -69,7 +100,7 @@ export default function Footer() {
                 </div>
 
                 {/* Bottom bar */}
-                <div className="text-center mt-4 small">
+                <div className={isNewDesign ? "copyright" : "text-center mt-4 small"}>
                     © {new Date().getFullYear()} Cyventra Software Solutions. {t("footer.copyright")}
                 </div>
             </div>
