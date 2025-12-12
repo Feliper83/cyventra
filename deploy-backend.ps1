@@ -48,7 +48,7 @@ if ($LASTEXITCODE -eq 0) {
     Write-Host "🎉 Backend Deployed Successfully!" -ForegroundColor Green
     Write-Host ""
     Write-Host "Check the output above for your API endpoint URL" -ForegroundColor Cyan
-    Write-Host "Save this URL - you'll need it for frontend configuration" -ForegroundColor Yellow
+    Write-Host "Save this URL - you will need it for frontend configuration" -ForegroundColor Yellow
 } else {
     Write-Host ""
     Write-Host "❌ Deployment failed!" -ForegroundColor Red

@@ -68,8 +68,8 @@ i18n
                     },
                     career:{
                         title: "Grow Through Transformation",
-                        description: "It’s good to be part of something, but being part of a great team means achieving the impossible. Join DreamCode and turn your purpose into impact.",
-                        sloganTitle: "Benefits of Viter Team",
+                        description: "It's good to be part of something, but being part of a great team means achieving the impossible. Join Cyventra and turn your purpose into impact.",
+                        sloganTitle: "Benefits of Cyventra Team",
                         sloganDescription: "We are a family that works hard and enjoys life. We foster the professional and personal growth of our team, turning each workday into a space of well-being and value for everyone."
                     },
                     footer: {
@@ -85,6 +85,35 @@ i18n
                         contact_title: "Contact",
                         contact_cta: "Request a Quote",
                         copyright: "All Rights Reserved."
+                    },
+                    solution: {
+                        subtitle: "Solution",
+                        not_found: "Content not found.",
+                        back: "Back",
+                        back_to_solutions: "← Back to Solutions",
+                        tag_blog: "Blog",
+                        tag_technology: "Technology"
+                    },
+                    apply: {
+                        title: "Job Application Form",
+                        subtitle: "Complete the form below to apply for the position",
+                        full_name: "Full Name",
+                        full_name_placeholder: "Enter your full name",
+                        email: "Email",
+                        email_placeholder: "Enter your email",
+                        phone: "Phone",
+                        phone_placeholder: "Enter your phone number",
+                        position: "Position Applying For",
+                        position_placeholder: "Select a position",
+                        resume_url: "Resume URL",
+                        resume_url_placeholder: "Enter your resume URL",
+                        cover_letter: "Cover Letter",
+                        cover_letter_placeholder: "Write your cover letter",
+                        submit: "Submit Application",
+                        success: "Application sent successfully!",
+                        error: "Error",
+                        error_unknown: "Unknown error",
+                        error_something_wrong: "Something went wrong."
                     }
                 }
             },
@@ -151,7 +180,7 @@ i18n
                     career:{
                         title: "Transforma para crecer",
                         description: "Ser parte de algo es bueno, pero ser parte de un gran equipo es lograr lo que otros consideran impensable. Únete y desarrolla tu propósito en Cyventra.",
-                        sloganTitle: "Benefitios de Viter Team",
+                        sloganTitle: "Beneficios de Cyventra Team",
                         sloganDescription: "Somos una familia que trabaja y disfruta la vida. Promovemos el desarrollo profesional y personal de nuestro equipo, haciendo de cada día de trabajo un espacio de bienestar y valor para todos."
                     },
                     footer: {
@@ -167,6 +196,35 @@ i18n
                         contact_title: "Contacto",
                         contact_cta: "Solicitar Cotización",
                         copyright: "Todos los derechos reservados."
+                    },
+                    solution: {
+                        subtitle: "Solución",
+                        not_found: "No se encontró el contenido del artículo.",
+                        back: "Volver",
+                        back_to_solutions: "← Volver a Solutions",
+                        tag_blog: "Blog",
+                        tag_technology: "Tecnología"
+                    },
+                    apply: {
+                        title: "Formulario de Aplicación",
+                        subtitle: "Completa el formulario a continuación para aplicar a la posición",
+                        full_name: "Nombre Completo",
+                        full_name_placeholder: "Ingresa tu nombre completo",
+                        email: "Correo Electrónico",
+                        email_placeholder: "Ingresa tu correo electrónico",
+                        phone: "Teléfono",
+                        phone_placeholder: "Ingresa tu número de teléfono",
+                        position: "Posición a la que Aplicas",
+                        position_placeholder: "Selecciona una posición",
+                        resume_url: "URL del Currículum",
+                        resume_url_placeholder: "Ingresa la URL de tu currículum",
+                        cover_letter: "Carta de Presentación",
+                        cover_letter_placeholder: "Escribe tu carta de presentación",
+                        submit: "Enviar Aplicación",
+                        success: "¡Aplicación enviada exitosamente!",
+                        error: "Error",
+                        error_unknown: "Error desconocido",
+                        error_something_wrong: "Algo salió mal."
                     }
                 }
             }

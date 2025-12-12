@@ -13,42 +13,40 @@ export async function fetchBlogsByLang(langCode, slug) {
             bpt.id, bpt.blog_post_id, bpt.lang_code, bpt.title, bpt.content,
             bp.slug, bp.author, bp.published_at, bp.display_order,
             COALESCE(
-                json_agg(
-                    DISTINCT jsonb_build_object(
-                        'id', ci.id,
-                        'blog_post_id', ci.blog_post_id,
-                        'image_path', ci.image_path,
-                        'caption', ci.caption,
-                        'display_order', ci.display_order
-                    ) ORDER BY jsonb_build_object(
-                        'id', ci.id,
-                        'blog_post_id', ci.blog_post_id,
-                        'image_path', ci.image_path,
-                        'caption', ci.caption,
-                        'display_order', ci.display_order
+                (
+                    SELECT json_agg(
+                        jsonb_build_object(
+                            'id', ci.id,
+                            'blog_post_id', ci.blog_post_id,
+                            'image_path', ci.image_path,
+                            'caption', ci.caption,
+                            'display_order', ci.display_order
+                        ) ORDER BY ci.display_order ASC
                     )
-                ) FILTER (WHERE ci.id IS NOT NULL),
+                    FROM cyventra.content_image ci
+                    WHERE ci.blog_post_id = bp.id
+                ),
                 '[]'::json
             ) as images,
             COALESCE(
-                json_agg(
-                    DISTINCT jsonb_build_object(
-                        'id', bpt2.id,
-                        'lang_code', bpt2.lang_code,
-                        'title', bpt2.title,
-                        'content', bpt2.content
+                (
+                    SELECT json_agg(
+                        jsonb_build_object(
+                            'id', bpt2.id,
+                            'lang_code', bpt2.lang_code,
+                            'title', bpt2.title,
+                            'content', bpt2.content
+                        )
                     )
-                ) FILTER (WHERE bpt2.id IS NOT NULL),
+                    FROM cyventra.blog_post_translation bpt2
+                    WHERE bpt2.blog_post_id = bp.id
+                ),
                 '[]'::json
             ) as translations
         FROM cyventra.blog_post_translation bpt
         JOIN cyventra.blog_post bp ON bp.id = bpt.blog_post_id
-        LEFT JOIN cyventra.content_image ci ON ci.blog_post_id = bp.id
-        LEFT JOIN cyventra.blog_post_translation bpt2 ON bpt2.blog_post_id = bp.id
         ${whereClause}
-        GROUP BY bpt.id, bpt.blog_post_id, bpt.lang_code, bpt.title, bpt.content,
-                 bp.id, bp.slug, bp.author, bp.published_at, bp.display_order
-        ORDER BY bp.id ASC
+        ORDER BY bp.display_order ASC, bp.published_at DESC
     `, params);
     
     // Transform to match Prisma structure

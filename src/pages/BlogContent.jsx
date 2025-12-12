@@ -16,7 +16,7 @@ export default function BlogContent() {
                 <div className="container py-5">
                     <div className="cyv-card text-center">
                         <p className="cyv-card-text">{t("blogs.notAvailable")}</p>
-                        <button className="cyv-btn cyv-btn-primary" onClick={() => navigate("/blogs-new")}>
+                        <button className="cyv-btn cyv-btn-primary" onClick={() => navigate("/blogs")}>
                             {t("blogs.lookArticle")}
                         </button>
                     </div>
@@ -187,7 +187,7 @@ export default function BlogContent() {
                         <div className="mt-4 text-center">
                             <button
                                 className="cyv-btn cyv-btn-outline"
-                                onClick={() => navigate("/blogs-new")}
+                                onClick={() => navigate("/blogs")}
                                 style={{ padding: '0.75rem 2rem' }}
                             >
                                 ← {t("blogs.backToBlogs")}

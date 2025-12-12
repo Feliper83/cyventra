@@ -15,8 +15,9 @@ export default function Navbar() {
     const [isMobile, setIsMobile] = useState(false);
 
     useEffect(() => {
-        const newDesignRoutes = ['/home-new', '/solutions-new', '/about-new', '/career-new', '/contact-new', '/blogs-new', '/blog'];
-        setIsNewDesign(newDesignRoutes.includes(location.pathname));
+        const newDesignRoutes = ['/home', '/solutions', '/about', '/career', '/contact', '/blogs', '/blog', '/solution'];
+        const isApplyRoute = location.pathname.startsWith('/apply/');
+        setIsNewDesign(newDesignRoutes.includes(location.pathname) || isApplyRoute);
         
         // Check if mobile for logo variant
         const checkMobile = () => {
@@ -40,7 +41,7 @@ export default function Navbar() {
     return (
         <nav className={navbarClass}>
             <div className="container-fluid ps-7">
-                <Link to="/home-new" className="cyv-logo-wrapper" style={{ textDecoration: 'none' }}>
+                <Link to="/home" className="cyv-logo-wrapper" style={{ textDecoration: 'none' }}>
                     <CyventraLogo 
                         variant={isMobile ? "icon" : "full"}
                         size="medium"
@@ -63,12 +64,12 @@ export default function Navbar() {
 
                 <div className="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul className="navbar-nav ms-auto">
-                        <Link className="nav-link" to="/home-new">{t("home")}</Link>
-                        <Link className="nav-link" to="/solutions-new">{t("solutions")}</Link>
-                        <Link className="nav-link" to="/about-new">{t("about")}</Link>
-                        <Link className="nav-link" to="/career-new">{t("growth")}</Link>
-                        <Link className="nav-link" to="/blogs-new">{t("blog")}</Link>
-                        <Link className="nav-link" to="/contact-new">{t("navbar.contact_menu")}</Link>
+                        <Link className="nav-link" to="/home">{t("home")}</Link>
+                        <Link className="nav-link" to="/solutions">{t("solutions")}</Link>
+                        <Link className="nav-link" to="/about">{t("about")}</Link>
+                        <Link className="nav-link" to="/career">{t("growth")}</Link>
+                        <Link className="nav-link" to="/blogs">{t("blog")}</Link>
+                        <Link className="nav-link" to="/contact">{t("navbar.contact_menu")}</Link>
                     </ul>
 
                     {/* Selector de idioma */}

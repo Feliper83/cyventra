@@ -10,8 +10,9 @@ export default function Footer() {
     const [isNewDesign, setIsNewDesign] = useState(false);
 
     useEffect(() => {
-        const newDesignRoutes = ['/home-new', '/solutions-new', '/about-new', '/career-new', '/contact-new', '/blogs-new', '/blog'];
-        setIsNewDesign(newDesignRoutes.includes(location.pathname));
+        const newDesignRoutes = ['/home', '/solutions', '/about', '/career', '/contact', '/blogs', '/blog', '/solution'];
+        const isApplyRoute = location.pathname.startsWith('/apply/');
+        setIsNewDesign(newDesignRoutes.includes(location.pathname) || isApplyRoute);
     }, [location]);
 
     const footerClass = isNewDesign 
@@ -38,11 +39,11 @@ export default function Footer() {
                             <i className="fas fa-link me-2"></i>{t("footer.links_title")}
                         </h6>
                         <ul className="list-unstyled">
-                            <li><Link to="/home-new">{t("footer.link_home")}</Link></li>
-                            <li><Link to="/solutions-new">{t("footer.link_solutions")}</Link></li>
-                            <li><Link to="/about-new">{t("footer.link_abouts")}</Link></li>
-                            <li><Link to="/career-new">{t("footer.link_careers")}</Link></li>
-                            <li><Link to="/blogs-new">{t("footer.link_blogs")}</Link></li>
+                            <li><Link to="/home">{t("footer.link_home")}</Link></li>
+                            <li><Link to="/solutions">{t("footer.link_solutions")}</Link></li>
+                            <li><Link to="/about">{t("footer.link_abouts")}</Link></li>
+                            <li><Link to="/career">{t("footer.link_careers")}</Link></li>
+                            <li><Link to="/blogs">{t("footer.link_blogs")}</Link></li>
                         </ul>
                     </div>
 
@@ -64,7 +65,7 @@ export default function Footer() {
                         </div>
                         <Link 
                             className="btn btn-sm" 
-                            to="/contact-new"
+                            to="/contact"
                             style={{
                                 background: isNewDesign ? 'var(--cyv-gradient-primary)' : '',
                                 border: 'none'

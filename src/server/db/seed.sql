@@ -26,7 +26,7 @@ INSERT INTO cyventra.benefit_translation (benefit_id, language, name) VALUES
 (2, 'es', 'Seguro de vida'),
 (3, 'es', 'Espacios de integración para todos'),
 (4, 'es', 'Desayuno cumpleaños'),
-(5, 'es', 'Aniversario Viter'),
+(5, 'es', 'Aniversario Cyventra'),
 (6, 'es', 'Bonificación extralegal por resultados'),
 (7, 'es', 'Licencia por matrimonio'),
 (8, 'es', 'Regalo por pregrado'),
@@ -40,7 +40,7 @@ INSERT INTO cyventra.benefit_translation (benefit_id, language, name) VALUES
 (2, 'en', 'Life insurance'),
 (3, 'en', 'Team integration spaces'),
 (4, 'en', 'Birthday breakfast'),
-(5, 'en', 'Viter anniversary'),
+(5, 'en', 'Cyventra anniversary'),
 (6, 'en', 'Extra bonus for performance'),
 (7, 'en', 'Marriage leave'),
 (8, 'en', 'Graduation gift'),
@@ -120,17 +120,17 @@ INSERT INTO cyventra.job_translation (job_id, language, title, experience) VALUE
   'Explore all our services'),
   -- About Us
   (3, 'es', 'Nuestra Historia: Innovación con propósito',
-        'Cyventra nació del sueño de un grupo de ingenieros apasionados por la tecnología y convencidos de que la innovación debía estar al alcance de todas las empresas, sin importar su tamaño. Desde el inicio, vimos en Estados Unidos un ecosistema donde la necesidad de transformación digital es constante y donde la confianza es el activo más importante.
+        'Cyventra fue fundada por un grupo de ingenieros apasionados por la tecnología y convencidos de que la innovación debe estar al alcance de todas las empresas, sin importar su tamaño. Desde el inicio, identificamos en Estados Unidos un ecosistema donde la necesidad de transformación digital es constante y donde la confianza es el activo más importante.
          Comenzamos trabajando en pequeños proyectos de desarrollo de software, pero rápidamente entendimos que las compañías necesitaban algo más: un aliado estratégico capaz de acompañarlas en todo el ciclo de su transformación digital, desde la construcción de software, la implementación de IA y el refuerzo de sus equipos, hasta la protección de sus sistemas más críticos.
          Hoy, Cyventra es más que un proveedor de tecnología: somos un socio confiable. Nuestra misión es clara: crear soluciones inteligentes, seguras y escalables que permitan a las empresas crecer en un mundo digital altamente competitivo.
          Nos diferencia nuestro enfoque humano. Creemos que la tecnología es poderosa, pero aún más poderosa es la forma en la que las personas la utilizan. Por eso combinamos talento, innovación y visión de futuro para ofrecer resultados que importan.
          Nuestro objetivo es seguir construyendo, junto con nuestros clientes, un futuro donde la tecnología sea sinónimo de crecimiento, confianza y oportunidades.',
          'Más sobre nuestro equipo'),
   (3, 'en', 'Our Story: Innovation with Purpose',
-        'Cyventra was born from the dream of a group of engineers passionate about technology and convinced that innovation should be accessible to every business, no matter its size. From the very beginning, we saw the U.S. as an ecosystem where digital transformation is constant and where trust is the most valuable asset.
+        'Cyventra was founded by a group of engineers passionate about technology and convinced that innovation should be accessible to every business, no matter its size. From the very beginning, we identified the U.S. as an ecosystem where digital transformation is constant and where trust is the most valuable asset.
          We started with small custom software projects, but quickly realized companies needed more: a strategic ally capable of supporting them through their entire digital transformation journey — from software development and AI implementation, to team augmentation and protecting critical systems.
          Today, Cyventra is more than a technology provider: we are a trusted partner. Our mission is clear — to create smart, secure, and scalable solutions that help businesses thrive in a highly competitive digital world.
-         What sets us apart is our human-centric approach. We believe technology is powerful, but even more powerful is how people use it. That’s why we combine talent, innovation, and vision to deliver results that truly matter.
+         What sets us apart is our human-centric approach. We believe technology is powerful, but even more powerful is how people use it. That's why we combine talent, innovation, and vision to deliver results that truly matter.
          Our goal is to keep building, together with our clients, a future where technology means growth, trust, and opportunity.',
         'Learn more about our team'),
   -- Projects
