@@ -1,0 +1,16 @@
+{
+  "name": "cyventra-portfolio-generator",
+  "version": "1.0.0",
+  "description": "Scripts to generate PDFs and emails for Cyventra portfolio",
+  "scripts": {
+    "generate:pdfs": "node scripts/generate-pdfs.js",
+    "generate:all": "node scripts/generate-all.js",
+    "install-deps": "npm install"
+  },
+  "dependencies": {
+    "markdown-pdf": "^10.0.0",
+    "puppeteer": "^21.0.0"
+  },
+  "devDependencies": {}
+}
+

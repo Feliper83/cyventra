@@ -1,4 +1,12 @@
+import dotenv from 'dotenv';
+import { fileURLToPath } from 'url';
+import { dirname, join } from 'path';
 import pg from 'pg';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
+dotenv.config({ path: join(__dirname, '../../.env') });
+dotenv.config({ path: join(__dirname, '.env') });
+
 const { Pool } = pg;
 
 console.log("🔌 Inicializando PostgreSQL Pool con:", process.env.DATABASE_URL?.split('@')[1] || 'DB configurada');

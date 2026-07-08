@@ -13,14 +13,20 @@ export async function geContacts(req, res) {
 
 export async function postContact(req, res) {
     try {
-        const { name, email, subject, message } = req.body;
+        const { name, email, phone, subject, message } = req.body;
 
         if (!name || !email || !message) {
             return res.status(400).json({ error: 'Name, email, and message are required' });
         }
 
-        const newContact =
-            await createContact({ name, email, subject, message });
+        const contactSubject = subject || (phone ? `Phone: ${phone}` : null);
+
+        const newContact = await createContact({
+            name,
+            email,
+            subject: contactSubject,
+            message,
+        });
         res.status(201).json(newContact);
     } catch (err) {
         console.error('Error creating Contact:', err);

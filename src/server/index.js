@@ -1,5 +1,12 @@
+import dotenv from 'dotenv'
+import { fileURLToPath } from 'url'
+import { dirname, join } from 'path'
 import express from 'express'
 import serverless from "serverless-http";
+
+const __dirname = dirname(fileURLToPath(import.meta.url))
+dotenv.config({ path: join(__dirname, '../../.env') })
+dotenv.config({ path: join(__dirname, '.env') })
 
 import cors from 'cors'
 import rateLimit from 'express-rate-limit'

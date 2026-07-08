@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { apiUrl } from '../config/api.js';
 import SEOHead from '../components/SEOHead.jsx';
@@ -7,7 +7,6 @@ import '../styles/cyventra-theme.css';
 
 export default function Contact() {
     const { t, i18n } = useTranslation();
-    const [contacts, setContacts] = useState([]);
     const [form, setForm] = useState({
         name: "",
         email: "",
@@ -15,12 +14,8 @@ export default function Contact() {
         message: "",
     });
     const [submitted, setSubmitted] = useState(false);
-
-    useEffect(() => {
-        fetch(apiUrl("/api/contacts"))
-            .then((res) => res.json())
-            .then((data) => setContacts(data));
-    }, []);
+    const [error, setError] = useState("");
+    const [submitting, setSubmitting] = useState(false);
 
     const handleChange = (e) => {
         setForm({ ...form, [e.target.name]: e.target.value });
@@ -28,19 +23,32 @@ export default function Contact() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setSubmitting(true);
+        setError("");
 
-        const res = await fetch(apiUrl("/api/contacts"), {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(form),
-        });
+        try {
+            const res = await fetch(apiUrl("/api/contacts"), {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(form),
+            });
 
-        if (res.ok) {
-            const newContact = await res.json();
-            setContacts([newContact, ...contacts]);
+            if (!res.ok) {
+                const data = await res.json().catch(() => ({}));
+                throw new Error(data.error || "Failed to send message");
+            }
+
+            await res.json();
             setForm({ name: "", email: "", phone: "", message: "" });
             setSubmitted(true);
             setTimeout(() => setSubmitted(false), 5000);
+        } catch (err) {
+            console.error("Contact form error:", err);
+            setError(
+                t("contact.error", "We couldn't send your message. Please try again or email us at contact@cyventrasoft.com.")
+            );
+        } finally {
+            setSubmitting(false);
         }
     };
 
@@ -102,6 +110,19 @@ export default function Contact() {
                     <div className="row justify-content-center">
                         <div className="col-lg-8">
                             <div className="cyv-card">
+                                {error && (
+                                    <div className="alert" style={{
+                                        background: 'rgba(239, 68, 68, 0.1)',
+                                        border: '1px solid #ef4444',
+                                        color: '#fca5a5',
+                                        padding: '1rem',
+                                        borderRadius: 'var(--cyv-radius-md)',
+                                        marginBottom: '1.5rem'
+                                    }}>
+                                        {error}
+                                    </div>
+                                )}
+
                                 {submitted && (
                                     <div className="alert" style={{
                                         background: 'rgba(16, 185, 129, 0.1)',
@@ -179,8 +200,9 @@ export default function Contact() {
                                             type="submit"
                                             className="cyv-btn cyv-btn-primary"
                                             style={{ width: '100%' }}
+                                            disabled={submitting}
                                         >
-                                            {t("contact.button_title")}
+                                            {submitting ? t("contact.sending", "Sending...") : t("contact.button_title")}
                                             <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" style={{ marginLeft: '0.5rem' }}>
                                                 <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
                                             </svg>

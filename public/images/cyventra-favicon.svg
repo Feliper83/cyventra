@@ -1,15 +1,32 @@
 <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <!-- Simplified outer ring -->
-  <circle cx="32" cy="32" r="28" stroke="#10B981" stroke-width="2" fill="none" opacity="0.25"/>
-  
-  <!-- Main "C" shape - cleaner and bolder -->
-  <path d="M32 14 C18 14 10 22 10 32 C10 42 18 50 32 50" stroke="#10B981" stroke-width="4" stroke-linecap="round" fill="none"/>
-  
-  <!-- Simplified tech circuit lines - only 2 -->
-  <line x1="18" y1="26" x2="26" y2="26" stroke="#34D399" stroke-width="2.5" stroke-linecap="round" opacity="0.7"/>
-  <line x1="18" y1="38" x2="26" y2="38" stroke="#34D399" stroke-width="2.5" stroke-linecap="round" opacity="0.7"/>
-  
-  <!-- Single accent dot -->
-  <circle cx="38" cy="32" r="2.5" fill="#34D399" opacity="0.9"/>
-</svg>
+  <defs>
+    <linearGradient id="bg" x1="8" y1="8" x2="56" y2="56" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0F172A"/>
+      <stop offset="1" stop-color="#1E293B"/>
+    </linearGradient>
+    <linearGradient id="ring" x1="10" y1="10" x2="54" y2="54" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#10B981"/>
+      <stop offset="1" stop-color="#34D399"/>
+    </linearGradient>
+  </defs>
 
+  <!-- Solid background for tab readability -->
+  <rect width="64" height="64" rx="14" fill="url(#bg)"/>
+
+  <!-- Brand ring -->
+  <circle cx="32" cy="32" r="22" stroke="url(#ring)" stroke-width="2.5" fill="none" opacity="0.55"/>
+
+  <!-- Bold C mark -->
+  <path
+    d="M32 17 C21 17 15 23 15 32 C15 41 21 47 32 47"
+    stroke="#10B981"
+    stroke-width="5.5"
+    stroke-linecap="round"
+    fill="none"
+  />
+
+  <!-- Tech accents -->
+  <line x1="21" y1="28" x2="27" y2="28" stroke="#34D399" stroke-width="3" stroke-linecap="round"/>
+  <line x1="21" y1="36" x2="27" y2="36" stroke="#34D399" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="38" cy="32" r="3.25" fill="#34D399"/>
+</svg>
