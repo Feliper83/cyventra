@@ -13,7 +13,7 @@ export async function geContacts(req, res) {
 
 export async function postContact(req, res) {
     try {
-        const { name, email, phone, subject, message } = req.body;
+        const { name, email, phone, subject, message, intent } = req.body;
 
         if (!name || !email || !message) {
             return res.status(400).json({ error: 'Name, email, and message are required' });
@@ -26,6 +26,7 @@ export async function postContact(req, res) {
             email,
             subject: contactSubject,
             message,
+            intent: intent || null,
         });
         res.status(201).json(newContact);
     } catch (err) {

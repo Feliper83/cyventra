@@ -99,7 +99,8 @@ CREATE TABLE IF NOT EXISTS cyventra.contact_message (
     subject VARCHAR(255),
     message TEXT NOT NULL,
     received_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    status VARCHAR(50) DEFAULT 'new'
+    status VARCHAR(50) DEFAULT 'new',
+    intent VARCHAR(100)
 );
 
 -- 7. Content image table

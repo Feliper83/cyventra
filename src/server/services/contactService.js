@@ -7,11 +7,11 @@ export async function fetchContactsByLang() {
     return result.rows;
 }
 
-export async function createContact({ name, email, subject, message }) {
+export async function createContact({ name, email, subject, message, intent = null }) {
     const result = await db.query(`
-        INSERT INTO cyventra.contact_message (name, email, subject, message)
-        VALUES ($1, $2, $3, $4)
+        INSERT INTO cyventra.contact_message (name, email, subject, message, intent)
+        VALUES ($1, $2, $3, $4, $5)
         RETURNING *
-    `, [name, email, subject, message]);
+    `, [name, email, subject, message, intent]);
     return result.rows[0];
 }

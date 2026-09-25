@@ -1,23 +1,42 @@
-import { useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { apiUrl } from '../config/api.js';
+import { SPRINT_BOOKING_URL, DIAGNOSTIC_PAYMENT_URL } from '../config/entryLinks.js';
 import SEOHead from '../components/SEOHead.jsx';
 import StructuredData from '../components/StructuredData.jsx';
 import '../styles/cyventra-theme.css';
 
-export default function Contact() {
+function EntryCTA({ url, intent, label, onSelect }) {
+    if (url) {
+        return (
+            <a href={url} target="_blank" rel="noopener noreferrer" className="cyv-btn cyv-btn-primary" style={{ width: '100%', justifyContent: 'center' }}>
+                {label}
+            </a>
+        );
+    }
+    return (
+        <button type="button" className="cyv-btn cyv-btn-primary" style={{ width: '100%', justifyContent: 'center' }} onClick={() => onSelect(intent)}>
+            {label}
+        </button>
+    );
+}
+
+export default function StartSprint() {
     const { t, i18n } = useTranslation();
-    const { state } = useLocation();
-    const [form, setForm] = useState({
-        name: "",
-        email: "",
-        phone: "",
-        message: "",
-    });
+    const lang = i18n.language || 'en';
+    const baseUrl = 'https://cyventrasoft.com';
+
+    const formRef = useRef(null);
+    const [selectedIntent, setSelectedIntent] = useState('sprint_booking');
+    const [form, setForm] = useState({ name: "", email: "", phone: "", message: "" });
     const [submitted, setSubmitted] = useState(false);
     const [error, setError] = useState("");
     const [submitting, setSubmitting] = useState(false);
+
+    const handleSelect = (intent) => {
+        setSelectedIntent(intent);
+        formRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    };
 
     const handleChange = (e) => {
         setForm({ ...form, [e.target.name]: e.target.value });
@@ -32,7 +51,7 @@ export default function Contact() {
             const res = await fetch(apiUrl("/api/contacts"), {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ ...form, intent: state?.intent || null }),
+                body: JSON.stringify({ ...form, intent: selectedIntent }),
             });
 
             if (!res.ok) {
@@ -45,78 +64,111 @@ export default function Contact() {
             setSubmitted(true);
             setTimeout(() => setSubmitted(false), 5000);
         } catch (err) {
-            console.error("Contact form error:", err);
-            setError(
-                t("contact.error", "We couldn't send your message. Please try again or email us at contact@cyventrasoft.com.")
-            );
+            console.error("Start Sprint form error:", err);
+            setError(t("sprint.form_error"));
         } finally {
             setSubmitting(false);
         }
     };
 
-    const lang = i18n.language || 'en';
-    const baseUrl = 'https://cyventrasoft.com';
     const pageTitle = lang === 'en'
-        ? "Contact Cyventra - Free Consultation"
-        : "Contacta a Cyventra - Consulta Gratuita";
-    
-    const pageDescription = lang === 'en'
-        ? "Contact Cyventra for custom software development, AI solutions, IAM services, or team augmentation. Free consultation. Response within 24 hours."
-        : "Contacta a Cyventra para desarrollo de software personalizado, soluciones de IA, servicios IAM o aumento de equipos. Consulta gratuita. Respuesta en 24 horas.";
-    
-    const keywords = lang === 'en'
-        ? "contact cyventra, software development quote, free consultation, get quote"
-        : "contacta cyventra, cotización desarrollo de software, consulta gratuita, obtener cotización";
+        ? "Start Your AI Automation Sprint - Cyventra"
+        : "Inicia tu Sprint de Automatización con IA - Cyventra";
 
-    const contactSchema = {
+    const pageDescription = lang === 'en'
+        ? "Fixed-price AI automation sprint ($1,500-$2,500), delivered in 1-2 weeks. Optional diagnostic ($297-$497) to identify your best automation opportunity."
+        : "Sprint de automatización con IA a precio fijo ($1,500-$2,500), entregado en 1-2 semanas. Diagnóstico opcional ($297-$497) para identificar tu mejor oportunidad de automatización.";
+
+    const structuredData = {
         "@context": "https://schema.org",
-        "@type": "ContactPage",
-        "mainEntity": {
-            "@type": "Organization",
-            "name": "Cyventra",
-            "contactPoint": {
-                "@type": "ContactPoint",
-                "contactType": "Sales",
-                "email": "contact@cyventrasoft.com",
-                "availableLanguage": ["English", "Spanish"]
+        "@type": "Service",
+        "name": lang === 'en' ? "AI Automation Sprint" : "Sprint de Automatización con IA",
+        "provider": { "@type": "Organization", "name": "Cyventra, Inc." },
+        "areaServed": "US",
+        "offers": [
+            {
+                "@type": "Offer",
+                "name": lang === 'en' ? "AI Automation Sprint" : "Sprint de Automatización con IA",
+                "priceSpecification": { "@type": "PriceSpecification", "minPrice": 1500, "maxPrice": 2500, "priceCurrency": "USD" }
+            },
+            {
+                "@type": "Offer",
+                "name": lang === 'en' ? "Diagnostic" : "Diagnóstico",
+                "priceSpecification": { "@type": "PriceSpecification", "minPrice": 297, "maxPrice": 497, "priceCurrency": "USD" }
             }
-        }
+        ]
     };
 
     return (
         <div className="cyv-page-wrapper">
-            <SEOHead 
+            <SEOHead
                 title={pageTitle}
                 description={pageDescription}
-                keywords={keywords}
-                ogImage={`${baseUrl}/images/og-contact.jpg`}
+                ogImage={`${baseUrl}/images/solutions/artificial-intelligence.jpg`}
             />
-            <StructuredData data={contactSchema} />
-            {/* Page Header */}
+            <StructuredData data={structuredData} />
+
             <div className="cyv-page-header">
                 <div className="container">
                     <div className="cyv-page-content">
-                        <h1 className="cyv-page-title">
-                            {t("contact.title", "Contáctanos")}
-                        </h1>
-                        <p className="cyv-page-subtitle">
-                            {t("contact.subtitle")}
-                        </p>
+                        <h1 className="cyv-page-title">{t("sprint.page_title")}</h1>
+                        <p className="cyv-page-subtitle">{t("sprint.page_subtitle")}</p>
                     </div>
                 </div>
             </div>
 
-            {/* Contact Form */}
             <div className="container">
                 <div className="cyv-page-content">
-                    <div className="row justify-content-center">
+                    <div className="cyv-grid cyv-grid-2">
+                        <div className="cyv-card">
+                            <span className="cyv-service-badge">{t("sprint.badge_price_short")}</span>
+                            <h3 className="cyv-card-title mt-3">{t("sprint.sprint_card_title")}</h3>
+                            <p className="cyv-card-text" style={{ fontWeight: 600 }}>
+                                {t("sprint.sprint_card_price")} · {t("sprint.sprint_card_timeline")}
+                            </p>
+                            <ul className="cyv-card-text" style={{ paddingLeft: '1.25rem' }}>
+                                <li>{t("sprint.sprint_bullet_1")}</li>
+                                <li>{t("sprint.sprint_bullet_2")}</li>
+                                <li>{t("sprint.sprint_bullet_3")}</li>
+                                <li>{t("sprint.sprint_bullet_4")}</li>
+                            </ul>
+                            <div className="mt-4">
+                                <EntryCTA
+                                    url={SPRINT_BOOKING_URL}
+                                    intent="sprint_booking"
+                                    label={t("sprint.sprint_cta")}
+                                    onSelect={handleSelect}
+                                />
+                            </div>
+                        </div>
+
+                        <div className="cyv-card">
+                            <h3 className="cyv-card-title">{t("sprint.diagnostic_card_title")}</h3>
+                            <p className="cyv-card-text" style={{ fontWeight: 600 }}>
+                                {t("sprint.diagnostic_card_price")}
+                            </p>
+                            <p className="cyv-card-text">{t("sprint.diagnostic_description")}</p>
+                            <div className="mt-4">
+                                <EntryCTA
+                                    url={DIAGNOSTIC_PAYMENT_URL}
+                                    intent="diagnostic_payment"
+                                    label={t("sprint.diagnostic_cta")}
+                                    onSelect={handleSelect}
+                                />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="row justify-content-center mt-5" ref={formRef}>
                         <div className="col-lg-8">
                             <div className="cyv-card">
-                                {state?.serviceName && (
-                                    <p className="cyv-card-text" style={{ color: 'var(--cyv-primary-light)', fontWeight: 600, marginBottom: '1.5rem' }}>
-                                        {t("contact.intent_note", { service: state.serviceName })}
-                                    </p>
-                                )}
+                                <h3 className="cyv-card-title mb-3">{t("sprint.form_heading")}</h3>
+                                <p className="cyv-card-text" style={{ color: 'var(--cyv-primary-light)', fontWeight: 600 }}>
+                                    {selectedIntent === 'diagnostic_payment'
+                                        ? t("sprint.form_selected_diagnostic")
+                                        : t("sprint.form_selected_sprint")}
+                                </p>
+
                                 {error && (
                                     <div className="alert" style={{
                                         background: 'rgba(239, 68, 68, 0.1)',
@@ -139,15 +191,13 @@ export default function Contact() {
                                         borderRadius: 'var(--cyv-radius-md)',
                                         marginBottom: '1.5rem'
                                     }}>
-                                        ✓ {t("contact.success")}
+                                        ✓ {t("sprint.form_success")}
                                     </div>
                                 )}
 
                                 <form onSubmit={handleSubmit}>
                                     <div className="cyv-form-group">
-                                        <label className="cyv-form-label">
-                                            {t("contact.name", "Nombre")}
-                                        </label>
+                                        <label className="cyv-form-label">{t("contact.name", "Name")}</label>
                                         <input
                                             type="text"
                                             name="name"
@@ -160,9 +210,7 @@ export default function Contact() {
                                     </div>
 
                                     <div className="cyv-form-group">
-                                        <label className="cyv-form-label">
-                                            {t("contact.email")}
-                                        </label>
+                                        <label className="cyv-form-label">{t("contact.email")}</label>
                                         <input
                                             type="email"
                                             name="email"
@@ -189,9 +237,7 @@ export default function Contact() {
                                     </div>
 
                                     <div className="cyv-form-group">
-                                        <label className="cyv-form-label">
-                                            {t("contact.message")}
-                                        </label>
+                                        <label className="cyv-form-label">{t("contact.message")}</label>
                                         <textarea
                                             name="message"
                                             placeholder={t("contact.message_placeholder")}
@@ -209,13 +255,14 @@ export default function Contact() {
                                             style={{ width: '100%' }}
                                             disabled={submitting}
                                         >
-                                            {submitting ? t("contact.sending", "Sending...") : t("contact.button_title")}
-                                            <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" style={{ marginLeft: '0.5rem' }}>
-                                                <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
-                                            </svg>
+                                            {submitting ? t("contact.sending", "Sending...") : t("sprint.form_submit")}
                                         </button>
                                     </div>
                                 </form>
+
+                                <p className="cyv-card-text mt-3" style={{ fontSize: '0.85rem', opacity: 0.7 }}>
+                                    {t("sprint.trust_note")}
+                                </p>
                             </div>
                         </div>
                     </div>

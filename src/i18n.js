@@ -56,7 +56,8 @@ i18n
                         phone_placeholder: "+1 (555) 123-4567",
                         message_placeholder: "Tell us about your project...",
                         success: "Message sent successfully!",
-                        optional: "optional"
+                        optional: "optional",
+                        intent_note: "You're inquiring about: {{service}}"
                     },
                     jobs: {
                       title: "Employment opportunities",
@@ -92,7 +93,33 @@ i18n
                         back: "Back",
                         back_to_solutions: "← Back to Solutions",
                         tag_blog: "Blog",
-                        tag_technology: "Technology"
+                        tag_technology: "Technology",
+                        cta_request_service: "Request This Service",
+                        cta_start_sprint: "Start Your Automation Sprint"
+                    },
+                    sprint: {
+                        page_title: "Start Your AI Automation Sprint",
+                        page_subtitle: "Pick your entry point: a fast diagnostic, or dive straight into a fixed-price Sprint.",
+                        badge_price_short: "$1,500–$2,500 · 1–2 weeks",
+                        sprint_card_title: "AI Automation Sprint",
+                        sprint_card_price: "$1,500 – $2,500",
+                        sprint_card_timeline: "Delivered in 1–2 weeks",
+                        sprint_bullet_1: "One workflow, fully automated: lead intake, support, or quoting/invoicing",
+                        sprint_bullet_2: "Fixed price, fixed scope — no surprises",
+                        sprint_bullet_3: "30 days of support included after launch",
+                        sprint_bullet_4: "No long-term contracts",
+                        sprint_cta: "Reserve My Sprint Slot",
+                        diagnostic_card_title: "Diagnostic (optional first step)",
+                        diagnostic_card_price: "$297 – $497",
+                        diagnostic_description: "Not sure which workflow to automate first? We identify the 2-3 best opportunities in your business.",
+                        diagnostic_cta: "Book My Diagnostic",
+                        form_heading: "Tell us about your business",
+                        form_selected_sprint: "You're requesting: AI Automation Sprint booking",
+                        form_selected_diagnostic: "You're requesting: Diagnostic booking",
+                        form_submit: "Send My Request",
+                        form_success: "Thanks — we'll reply within 1 business day to confirm.",
+                        form_error: "We couldn't send your request. Please try again or email us at contact@cyventrasoft.com.",
+                        trust_note: "Built and supported by Cyventra, Inc., a U.S. corporation."
                     },
                     apply: {
                         title: "Job Application Form",
@@ -167,7 +194,8 @@ i18n
                         phone_placeholder: "+1 (555) 123-4567",
                         message_placeholder: "Cuéntanos sobre tu proyecto...",
                         success: "¡Mensaje enviado exitosamente!",
-                        optional: "opcional"
+                        optional: "opcional",
+                        intent_note: "Estás consultando por: {{service}}"
                     },
                     jobs: {
                         title: "Opotunidades de empleo",
@@ -203,7 +231,33 @@ i18n
                         back: "Volver",
                         back_to_solutions: "← Volver a Solutions",
                         tag_blog: "Blog",
-                        tag_technology: "Tecnología"
+                        tag_technology: "Tecnología",
+                        cta_request_service: "Solicitar Este Servicio",
+                        cta_start_sprint: "Inicia tu Sprint de Automatización"
+                    },
+                    sprint: {
+                        page_title: "Inicia tu Sprint de Automatización con IA",
+                        page_subtitle: "Elige tu punto de entrada: un diagnóstico rápido, o directo a un Sprint de precio fijo.",
+                        badge_price_short: "$1,500–$2,500 · 1–2 semanas",
+                        sprint_card_title: "Sprint de Automatización con IA",
+                        sprint_card_price: "$1,500 – $2,500",
+                        sprint_card_timeline: "Entregado en 1–2 semanas",
+                        sprint_bullet_1: "Un proceso, totalmente automatizado: captación de leads, soporte, o cotizaciones/facturación",
+                        sprint_bullet_2: "Precio fijo, alcance fijo — sin sorpresas",
+                        sprint_bullet_3: "30 días de soporte incluidos después del lanzamiento",
+                        sprint_bullet_4: "Sin contratos largos",
+                        sprint_cta: "Reservar mi Sprint",
+                        diagnostic_card_title: "Diagnóstico (paso opcional)",
+                        diagnostic_card_price: "$297 – $497",
+                        diagnostic_description: "¿No sabes qué automatizar primero? Identificamos las 2-3 mejores oportunidades en tu negocio.",
+                        diagnostic_cta: "Reservar mi Diagnóstico",
+                        form_heading: "Cuéntanos sobre tu negocio",
+                        form_selected_sprint: "Estás solicitando: reserva del Sprint de Automatización",
+                        form_selected_diagnostic: "Estás solicitando: reserva del Diagnóstico",
+                        form_submit: "Enviar mi Solicitud",
+                        form_success: "Gracias — te responderemos en 1 día hábil para confirmar.",
+                        form_error: "No pudimos enviar tu solicitud. Intenta de nuevo o escríbenos a contact@cyventrasoft.com.",
+                        trust_note: "Construido y respaldado por Cyventra, Inc., una corporación de Estados Unidos."
                     },
                     apply: {
                         title: "Formulario de Aplicación",

@@ -15,7 +15,7 @@ export default function Navbar() {
     const [isMobile, setIsMobile] = useState(false);
 
     useEffect(() => {
-        const newDesignRoutes = ['/home', '/solutions', '/about', '/career', '/contact', '/blogs', '/blog', '/solution'];
+        const newDesignRoutes = ['/home', '/solutions', '/about', '/career', '/contact', '/blogs', '/blog', '/solution', '/start-sprint'];
         const isApplyRoute = location.pathname.startsWith('/apply/');
         setIsNewDesign(newDesignRoutes.includes(location.pathname) || isApplyRoute);
         

@@ -38,12 +38,13 @@ export default function Solutions() {
         fetchData();
     }, [language, i18n.language]);
 
-    const handleClick = (title, description, image) => {
+    const handleClick = (title, description, image, slug) => {
         navigate("/solution", {
             state: {
                 title: title,
                 description: description,
-                image: image
+                image: image,
+                slug: slug
             },
         });
     };
@@ -123,8 +124,8 @@ export default function Solutions() {
                             {services.map((service) => (
                             <div 
                                 key={service.id} 
-                                className="cyv-service-card" 
-                                onClick={() => handleClick(service.name, service.details, service.service?.icon_path)}
+                                className="cyv-service-card"
+                                onClick={() => handleClick(service.name, service.details, service.service?.icon_path, service.service?.slug)}
                             >
                                 {service.service?.icon_path && (
                                     <div className="cyv-service-image-wrapper">
@@ -135,7 +136,9 @@ export default function Solutions() {
                                         />
                                         <div className="cyv-service-image-overlay">
                                             <span className="cyv-service-badge">
-                                                {service.slug}
+                                                {service.service?.slug === 'ai-automation-sprint'
+                                                    ? t('sprint.badge_price_short')
+                                                    : service.service?.slug}
                                             </span>
                                         </div>
                                     </div>

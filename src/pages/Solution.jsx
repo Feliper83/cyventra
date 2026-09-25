@@ -28,7 +28,7 @@ export default function Solution() {
         );
     }
 
-    const { title, description, image } = state;
+    const { title, description, image, slug } = state;
     const { i18n } = useTranslation();
     const lang = i18n.language || 'en';
     const baseUrl = 'https://cyventrasoft.com';
@@ -139,6 +139,11 @@ export default function Solution() {
                     <div className="cyv-page-content">
                         <h1 className="cyv-page-title">{title}</h1>
                         <p className="cyv-page-subtitle">{t("solution.subtitle")}</p>
+                        {slug === 'ai-automation-sprint' && (
+                            <span className="cyv-service-badge" style={{ display: 'inline-block', marginTop: '1rem' }}>
+                                {t("sprint.badge_price_short")}
+                            </span>
+                        )}
                     </div>
                 </div>
             </div>
@@ -216,12 +221,29 @@ export default function Solution() {
                                 <span>✍️ Cyventra</span>
                                 <span> • 09/09/2025</span>
                             </div>
-                            <button
-                                className="cyv-btn cyv-btn-primary"
-                                onClick={() => navigate("/solutions")}
-                            >
-                                {t("solution.back_to_solutions")}
-                            </button>
+                            <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
+                                {slug === 'ai-automation-sprint' ? (
+                                    <button
+                                        className="cyv-btn cyv-btn-primary"
+                                        onClick={() => navigate('/start-sprint')}
+                                    >
+                                        {t("solution.cta_start_sprint")}
+                                    </button>
+                                ) : (
+                                    <button
+                                        className="cyv-btn cyv-btn-primary"
+                                        onClick={() => navigate('/contact', { state: { intent: slug, serviceName: title } })}
+                                    >
+                                        {t("solution.cta_request_service")}
+                                    </button>
+                                )}
+                                <button
+                                    className="cyv-btn cyv-btn-secondary"
+                                    onClick={() => navigate("/solutions")}
+                                >
+                                    {t("solution.back_to_solutions")}
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>

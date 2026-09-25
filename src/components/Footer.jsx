@@ -10,7 +10,7 @@ export default function Footer() {
     const [isNewDesign, setIsNewDesign] = useState(false);
 
     useEffect(() => {
-        const newDesignRoutes = ['/home', '/solutions', '/about', '/career', '/contact', '/blogs', '/blog', '/solution'];
+        const newDesignRoutes = ['/home', '/solutions', '/about', '/career', '/contact', '/blogs', '/blog', '/solution', '/start-sprint'];
         const isApplyRoute = location.pathname.startsWith('/apply/');
         setIsNewDesign(newDesignRoutes.includes(location.pathname) || isApplyRoute);
     }, [location]);

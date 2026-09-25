@@ -12,6 +12,7 @@ import CareerGrowth from "./pages/CareerGrowth.jsx";
 import Contact from "./pages/Contact.jsx";
 import Solution from "./pages/Solution.jsx";
 import JobApplicationForm from "./pages/JobApplicationForm.jsx";
+import StartSprint from "./pages/StartSprint.jsx";
 
 function App() {
     return (
@@ -28,6 +29,7 @@ function App() {
                     <Route path="/blogs" element={<CybeBlog />} />
                     <Route path="/blog" element={<BlogContent />} />
                     <Route path="/contact" element={<Contact />} />
+                    <Route path="/start-sprint" element={<StartSprint />} />
                     <Route path="/apply/:id" element={<JobApplicationForm />} />
                 </Routes>
             </main>
