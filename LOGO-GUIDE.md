@@ -29,11 +29,13 @@
 
 ### Colores
 
-| Variante | Icono | Texto | Uso |
-|----------|-------|-------|-----|
-| `white` | #FFFFFF | #FFFFFF | Fondos oscuros (navbar, hero) |
-| `primary` | #10B981 | #10B981 | Fondos claros, documentos |
-| `dark` | #0F172A | #0F172A | Fondos claros/blancos |
+El badge "CY" es un tile de dos tonos que siempre contrasta consigo mismo (no depende del fondo). La variante de color define el tile y el texto "VENTRA"/"CYVENTRA":
+
+| Variante | Fondo del badge | Texto del badge | Regla | "VENTRA" | Uso |
+|----------|------------------|------------------|-------|----------|-----|
+| `white` | #FFFFFF | #0F172A | #C9A15A | #FFFFFF | Fondos oscuros (navbar, hero) |
+| `primary` | #0F172A | #C9A15A | #C9A15A | #0F172A | Acento premium sobre fondos claros |
+| `dark` | #0F172A | #FFFFFF | #8A6A31 | #0F172A | Fondos claros/blancos |
 
 ## 🚫 Zona de Exclusión
 
@@ -132,6 +134,12 @@ El logo debe tener un espacio mínimo libre equivalente a **0.5x la altura del i
 - **Estilos CSS**: `src/styles/cyventra-theme.css` (sección `.cyv-logo-*`)
 
 ## 🔄 Actualizaciones
+
+**Versión 3.0** (Septiembre 2026)
+- Rediseño completo: de ícono abstracto "C" con líneas de circuito a monograma "CY" tipo badge (convención de firmas serias: "GS", "JPM")
+- Sin dependencia de iconografía genérica de IA/circuitos — refuerza el posicionamiento "Cyventra, Inc. — corporación de EE.UU."
+- El lockup completo se lee `[CY] VENTRA` en vez de ícono + "CYVENTRA" repetido
+- Acento en bronce (#C9A15A / #8A6A31) reemplaza el verde esmeralda como color de marca distintivo
 
 **Versión 2.0** (Diciembre 2025)
 - Icono simplificado (menos elementos decorativos)

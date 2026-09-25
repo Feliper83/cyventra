@@ -2,107 +2,85 @@ import React from 'react';
 import '../styles/cyventra-theme.css';
 
 /**
- * Cyventra Logo Component
- * Modern, tech-forward logo with icon and typography
- * 
+ * Cyventra Logo Component — "The Badge"
+ * Two-letter monogram badge ("CY") with a brass rule, continued by "VENTRA" in the full lockup.
+ * No circuit/AI iconography — leans on corporate-monogram convention (a "GS", a "JPM") for trust.
+ *
  * @param {Object} props
- * @param {string} props.variant - 'full' (icon + text) | 'icon' (icon only) | 'text' (text only)
+ * @param {string} props.variant - 'full' (badge + "VENTRA") | 'icon' (badge only) | 'text' (wordmark only, no badge)
  * @param {string} props.size - 'small' | 'medium' | 'large'
  * @param {string} props.color - 'primary' | 'white' | 'dark'
  * @param {string} props.className - Additional CSS classes
  */
-export default function CyventraLogo({ 
-    variant = 'full', 
+export default function CyventraLogo({
+    variant = 'full',
     size = 'medium',
     color = 'white',
     className = ''
 }) {
-    // Size configurations - Improved proportions
     const sizes = {
-        small: { icon: 36, fontSize: '0.875rem', spacing: 8 },
-        medium: { icon: 48, fontSize: '1.125rem', spacing: 12 },
-        large: { icon: 64, fontSize: '1.5rem', spacing: 16 }
+        small: { badge: 30, radius: 7, badgeFont: '0.82rem', wordFont: '0.9rem', spacing: 8 },
+        medium: { badge: 40, radius: 9, badgeFont: '1.05rem', wordFont: '1.125rem', spacing: 10 },
+        large: { badge: 56, radius: 13, badgeFont: '1.45rem', wordFont: '1.5rem', spacing: 14 }
     };
-
     const config = sizes[size];
 
-    // Color configurations
-    const colors = {
-        primary: {
-            icon: '#10B981', // --cyv-primary
-            text: '#10B981',
-            accent: '#34D399' // --cyv-primary-light
-        },
-        white: {
-            icon: '#FFFFFF',
-            text: '#FFFFFF',
-            accent: '#E2E8F0'
-        },
-        dark: {
-            icon: '#0F172A', // --cyv-dark
-            text: '#0F172A',
-            accent: '#1E293B'
-        }
+    // Badge is a two-tone tile: it always contrasts with its own background,
+    // independent of what's behind it — that's what makes it read on both dark and light surfaces.
+    const schemes = {
+        primary: { badgeBg: '#0F172A', badgeText: '#C9A15A', rule: '#C9A15A', word: '#0F172A' },
+        white: { badgeBg: '#FFFFFF', badgeText: '#0F172A', rule: '#C9A15A', word: '#FFFFFF' },
+        dark: { badgeBg: '#0F172A', badgeText: '#FFFFFF', rule: '#8A6A31', word: '#0F172A' }
     };
+    const scheme = schemes[color];
 
-    const colorScheme = colors[color];
+    const wordFontFamily = "'Avenir Next', 'Century Gothic', Futura, Arial, sans-serif";
 
-    // Icon SVG - Simplified and refined "C" with subtle tech elements
-    const IconSVG = () => (
-        <svg 
-            width={config.icon} 
-            height={config.icon} 
-            viewBox="0 0 64 64" 
-            fill="none" 
-            xmlns="http://www.w3.org/2000/svg"
-            className="cyv-logo-icon"
+    const Badge = () => (
+        <div
+            className="cyv-logo-badge"
+            style={{
+                width: config.badge,
+                height: config.badge,
+                borderRadius: config.radius,
+                background: scheme.badgeBg,
+                color: scheme.badgeText,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                fontFamily: wordFontFamily,
+                fontWeight: 700,
+                fontSize: config.badgeFont,
+                letterSpacing: '0.01em',
+                position: 'relative',
+                flexShrink: 0
+            }}
         >
-            {/* Simplified outer ring - more subtle */}
-            <circle 
-                cx="32" 
-                cy="32" 
-                r="28" 
-                stroke={colorScheme.icon} 
-                strokeWidth="2" 
-                fill="none"
-                opacity="0.25"
+            CY
+            <span
+                style={{
+                    position: 'absolute',
+                    bottom: Math.round(config.badge * 0.17),
+                    left: '26%',
+                    right: '26%',
+                    height: Math.max(2, Math.round(config.badge * 0.045)),
+                    background: scheme.rule
+                }}
             />
-            
-            {/* Main "C" shape - cleaner and bolder */}
-            <path 
-                d="M32 14 C18 14 10 22 10 32 C10 42 18 50 32 50" 
-                stroke={colorScheme.icon} 
-                strokeWidth="4" 
-                strokeLinecap="round"
-                fill="none"
-            />
-            
-            {/* Simplified tech circuit lines - only 2 instead of 3 */}
-            <line 
-                x1="18" 
-                y1="26" 
-                x2="26" 
-                y2="26" 
-                stroke={colorScheme.accent} 
-                strokeWidth="2.5" 
-                strokeLinecap="round"
-                opacity="0.7"
-            />
-            <line 
-                x1="18" 
-                y1="38" 
-                x2="26" 
-                y2="38" 
-                stroke={colorScheme.accent} 
-                strokeWidth="2.5" 
-                strokeLinecap="round"
-                opacity="0.7"
-            />
-            
-            {/* Single accent dot - more minimal */}
-            <circle cx="38" cy="32" r="2.5" fill={colorScheme.accent} opacity="0.9" />
-        </svg>
+        </div>
     );
+
+    const wordStyle = {
+        fontSize: config.wordFont,
+        fontWeight: 700,
+        color: scheme.word,
+        fontFamily: wordFontFamily,
+        letterSpacing: '0.01em',
+        lineHeight: '1.1',
+        margin: 0,
+        padding: 0,
+        whiteSpace: 'nowrap'
+    };
 
     const containerStyle = {
         display: 'inline-flex',
@@ -111,31 +89,20 @@ export default function CyventraLogo({
         transition: 'all 0.3s ease'
     };
 
-    const textStyle = {
-        fontSize: config.fontSize,
-        fontWeight: '700',
-        color: colorScheme.text,
-        fontFamily: 'var(--cyv-font-heading), sans-serif',
-        letterSpacing: size === 'small' ? '0.08em' : '0.06em', // Better spacing for small sizes
-        textTransform: 'uppercase',
-        lineHeight: '1.1', // Slightly better line height
-        margin: 0,
-        padding: 0,
-        whiteSpace: 'nowrap' // Prevent text wrapping
-    };
-
     return (
-        <div 
-            className={`cyv-logo-component ${className}`}
-            style={containerStyle}
-        >
-            {(variant === 'full' || variant === 'icon') && <IconSVG />}
-            {(variant === 'full' || variant === 'text') && (
-                <span className="cyv-logo-text" style={textStyle}>
-                    CYVENTRA
-                </span>
+        <div className={`cyv-logo-component ${className}`} style={containerStyle}>
+            {variant === 'icon' && <Badge />}
+
+            {variant === 'full' && (
+                <>
+                    <Badge />
+                    <span className="cyv-logo-text" style={wordStyle}>VENTRA</span>
+                </>
+            )}
+
+            {variant === 'text' && (
+                <span className="cyv-logo-text" style={wordStyle}>CYVENTRA</span>
             )}
         </div>
     );
 }
-
