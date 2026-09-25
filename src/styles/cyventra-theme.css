@@ -508,12 +508,8 @@
   display: flex;
   align-items: flex-end;
   padding: 1rem;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.cyv-service-card:hover .cyv-service-image-overlay {
   opacity: 1;
+  transition: opacity 0.3s ease;
 }
 
 .cyv-service-badge {
