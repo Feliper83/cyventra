@@ -38,6 +38,8 @@ jobs:
         run: npm ci
 
       - name: Build frontend
+        env:
+          VITE_API_URL: https://1voa6u4n3h.execute-api.us-east-1.amazonaws.com
         run: npm run client:build
 
       - name: Configure AWS credentials (OIDC)
