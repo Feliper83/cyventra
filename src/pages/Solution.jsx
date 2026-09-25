@@ -43,16 +43,16 @@ export default function Solution() {
                     ? "Software Team Augmentation - Cyventra"
                     : "Aumento de Equipos de Software - Cyventra",
                 description: lang === 'en'
-                    ? "Nearshore team augmentation: Senior engineers at 60% lower cost. Same timezone, bilingual, 48-hour integration. Scale your team without HR overhead."
-                    : "Aumento de equipos nearshore: Ingenieros senior con 60% menos costo. Misma zona horaria, bilingües, integración en 48 horas. Escala tu equipo sin sobrecarga de RRHH.",
+                    ? "Team augmentation from Cyventra, Inc., a U.S. corporation: senior LATAM engineers at 60% lower cost. Same timezone, bilingual, 48-hour integration. Scale your team without HR overhead."
+                    : "Aumento de equipos de Cyventra, Inc., una corporación de EE.UU.: ingenieros senior en LATAM con 60% menos costo. Misma zona horaria, bilingües, integración en 48 horas. Escala tu equipo sin sobrecarga de RRHH.",
                 keywords: lang === 'en'
-                    ? "team augmentation, nearshore development, software engineers, remote developers, staff augmentation, dedicated team"
-                    : "aumento de equipos, desarrollo nearshore, ingenieros de software, desarrolladores remotos, staff augmentation, equipo dedicado",
+                    ? "team augmentation, LATAM engineering team, software engineers, remote developers, staff augmentation, dedicated team"
+                    : "aumento de equipos, equipo de ingeniería LATAM, ingenieros de software, desarrolladores remotos, staff augmentation, equipo dedicado",
                 schema: {
                     "@type": "Service",
                     "name": lang === 'en' ? "Software Team Augmentation" : "Aumento de Equipos de Software",
-                    "description": lang === 'en' ? "Nearshore software engineers for US companies" : "Ingenieros de software nearshore para empresas estadounidenses",
-                    "provider": { "@type": "Organization", "name": "Cyventra" },
+                    "description": lang === 'en' ? "LATAM-based software engineers, delivered by Cyventra, Inc. (U.S. corporation), for US companies" : "Ingenieros de software en LATAM, entregados por Cyventra, Inc. (corporación de EE.UU.), para empresas estadounidenses",
+                    "provider": { "@type": "Organization", "name": "Cyventra, Inc." },
                     "areaServed": "US",
                     "serviceType": "Staff Augmentation"
                 }
@@ -74,7 +74,7 @@ export default function Solution() {
                     "@type": "Service",
                     "name": lang === 'en' ? "Artificial Intelligence Solutions" : "Soluciones de Inteligencia Artificial",
                     "description": lang === 'en' ? "Practical AI for business growth and automation" : "IA práctica para el crecimiento empresarial y automatización",
-                    "provider": { "@type": "Organization", "name": "Cyventra" },
+                    "provider": { "@type": "Organization", "name": "Cyventra, Inc." },
                     "serviceType": "AI Consulting"
                 }
             };
@@ -95,7 +95,7 @@ export default function Solution() {
                     "@type": "Service",
                     "name": lang === 'en' ? "Identity & Access Management" : "Gestión de Identidad y Acceso",
                     "description": lang === 'en' ? "IAM implementation and security services" : "Implementación de IAM y servicios de seguridad",
-                    "provider": { "@type": "Organization", "name": "Cyventra" },
+                    "provider": { "@type": "Organization", "name": "Cyventra, Inc." },
                     "serviceType": "Cybersecurity"
                 }
             };
@@ -116,7 +116,7 @@ export default function Solution() {
                 "@type": "Service",
                 "name": lang === 'en' ? "Custom Software Development" : "Desarrollo de Software Personalizado",
                 "description": lang === 'en' ? "Cloud-native, scalable software solutions" : "Soluciones de software escalables y nativas de la nube",
-                "provider": { "@type": "Organization", "name": "Cyventra" },
+                "provider": { "@type": "Organization", "name": "Cyventra, Inc." },
                 "serviceType": "Software Development"
             }
         };

@@ -58,12 +58,16 @@ export default function Home() {
     "name": "Cyventra",
     "url": baseUrl,
     "logo": `${baseUrl}/images/cyventra-logo.svg`,
-    "description": lang === 'en' 
-      ? "Nearshore software development company offering custom software, AI solutions, IAM, and team augmentation. 60% cost savings, same timezone, enterprise quality."
-      : "Empresa de desarrollo de software nearshore que ofrece software personalizado, soluciones de IA, IAM y aumento de equipos. 60% de ahorro en costos, misma zona horaria, calidad empresarial.",
+    "description": lang === 'en'
+      ? "Cyventra, Inc. is a U.S. corporation (Florida) helping small businesses automate work with practical AI and build custom software, backed by an engineering team across Latin America."
+      : "Cyventra, Inc. es una corporación de Estados Unidos (Florida) que ayuda a pequeñas empresas a automatizar procesos con IA práctica y construir software a la medida, con un equipo de ingeniería en Latinoamérica.",
     "address": {
       "@type": "PostalAddress",
-      "addressCountry": "CO"
+      "streetAddress": "1317 Edgewater Dr",
+      "addressLocality": "Orlando",
+      "addressRegion": "FL",
+      "postalCode": "32804",
+      "addressCountry": "US"
     },
     "contactPoint": {
       "@type": "ContactPoint",
@@ -71,8 +75,13 @@ export default function Home() {
       "email": "contact@cyventrasoft.com",
       "availableLanguage": ["English", "Spanish"]
     },
-    "areaServed": ["US", "LATAM"],
+    "areaServed": "US",
     "service": [
+      {
+        "@type": "Service",
+        "name": lang === 'en' ? "AI Automation Sprint" : "Sprint de Automatización con IA",
+        "description": lang === 'en' ? "Fixed-price automation of one business workflow, live in 1-2 weeks" : "Automatización de un proceso de negocio a precio fijo, en 1-2 semanas"
+      },
       {
         "@type": "Service",
         "name": lang === 'en' ? "Custom Software Development" : "Desarrollo de Software Personalizado",
@@ -81,12 +90,7 @@ export default function Home() {
       {
         "@type": "Service",
         "name": lang === 'en' ? "Team Augmentation" : "Aumento de Equipos",
-        "description": lang === 'en' ? "Nearshore software engineers" : "Ingenieros de software nearshore"
-      },
-      {
-        "@type": "Service",
-        "name": lang === 'en' ? "AI Solutions" : "Soluciones de IA",
-        "description": lang === 'en' ? "Practical AI for business growth" : "IA práctica para el crecimiento empresarial"
+        "description": lang === 'en' ? "Software engineering team augmentation" : "Aumento de equipos de ingeniería de software"
       },
       {
         "@type": "Service",

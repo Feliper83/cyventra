@@ -192,7 +192,7 @@ Desde el concepto hasta el despliegue, construimos software que escala con tu ne
 
 **Email:** contact@cyventrasoft.com
 
-**Ubicación:** Colombia (Sirviendo a USA & LATAM)
+**Ubicación:** Cyventra, Inc. — corporación de EE.UU. (Florida), equipo de ingeniería en LATAM
 
 **Idiomas Disponibles:** Inglés, Español
 

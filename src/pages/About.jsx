@@ -32,25 +32,25 @@ export default function About() {
 
     const baseUrl = 'https://cyventrasoft.com';
     const pageTitle = lang === 'en'
-        ? "About Cyventra - Nearshore Software Development Company"
-        : "Acerca de Cyventra - Empresa de Desarrollo de Software Nearshore";
-    
+        ? "About Cyventra, Inc. - U.S. Software Corporation"
+        : "Acerca de Cyventra, Inc. - Corporación de Software de EE.UU.";
+
     const pageDescription = lang === 'en'
-        ? "Cyventra: Nearshore software development company serving US businesses. Founded by engineers passionate about technology. Bilingual teams, same timezone, enterprise quality."
-        : "Cyventra: Empresa de desarrollo de software nearshore que sirve a empresas estadounidenses. Fundada por ingenieros apasionados por la tecnología. Equipos bilingües, misma zona horaria, calidad empresarial.";
-    
+        ? "Cyventra, Inc. is a U.S. corporation (Florida) serving US businesses, with an engineering team across Latin America. Bilingual, same timezone, enterprise quality."
+        : "Cyventra, Inc. es una corporación de Estados Unidos (Florida) que sirve a empresas estadounidenses, con un equipo de ingeniería en Latinoamérica. Bilingüe, misma zona horaria, calidad empresarial.";
+
     const keywords = lang === 'en'
-        ? "about cyventra, software company, nearshore development company, LATAM software team"
-        : "acerca de cyventra, empresa de software, empresa de desarrollo nearshore, equipo de software LATAM";
+        ? "about cyventra, US software corporation, LATAM engineering team, bilingual software team"
+        : "acerca de cyventra, corporación de software de EE.UU., equipo de ingeniería LATAM, equipo de software bilingüe";
 
     const aboutSchema = {
         "@context": "https://schema.org",
         "@type": "AboutPage",
         "mainEntity": {
             "@type": "Organization",
-            "name": "Cyventra",
+            "name": "Cyventra, Inc.",
             "foundingDate": "2024",
-            "description": lang === 'en' ? "Nearshore software development company" : "Empresa de desarrollo de software nearshore",
+            "description": lang === 'en' ? "U.S. software corporation with an engineering team across Latin America" : "Corporación de software de EE.UU. con un equipo de ingeniería en Latinoamérica",
             "numberOfEmployees": {
                 "@type": "QuantitativeValue",
                 "value": "10-50"

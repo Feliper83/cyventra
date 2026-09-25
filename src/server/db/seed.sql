@@ -326,10 +326,10 @@ INSERT INTO cyventra.company
 (email, phone, website, address, logo_url, facebook, twitter, linkedin, instagram)
 VALUES
 (
-  'contact@cyventra.com',
-  '+57 123 456 7890',
-  'https://www.cyventra.com',
-  'Carrera 10 #20-30, Bogotá, Colombia',
+  'contact@cyventrasoft.com',
+  NULL,
+  'https://www.cyventrasoft.com',
+  '1317 Edgewater Dr, Orlando, FL 32804, US',
   '/images/logo.png',
   'https://www.facebook.com/techsolutions',
   'https://twitter.com/techsolutions',
@@ -342,13 +342,13 @@ INSERT INTO cyventra.company_translation (company_id, language, name, slogan, de
 VALUES
 -- Español
 (1, 'es',
- 'Cyventra.',
+ 'Cyventra, Inc.',
  'Innovando el Futuro',
- 'Tech Solutions Inc. es una compañía dedicada al desarrollo de software, consultoría tecnológica y soluciones de inteligencia artificial para empresas en LATAM y USA.'
+ 'Cyventra, Inc. es una corporación de Estados Unidos (Florida) que ayuda a pequeñas empresas a automatizar procesos con IA práctica y construir software a la medida, con un equipo de ingeniería en Latinoamérica.'
 ),
 -- Inglés
 (1, 'en',
- 'Cyventra.',
+ 'Cyventra, Inc.',
  'Innovating the Future',
- 'Tech Solutions Inc. is a company dedicated to software development, technology consulting, and AI solutions for businesses in LATAM and USA.'
+ 'Cyventra, Inc. is a U.S. corporation (Florida) helping small businesses automate work with practical AI and build custom software, powered by an engineering team across Latin America.'
 );

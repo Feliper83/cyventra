@@ -20,11 +20,11 @@ i18n
                         "Boost your business with cutting-edge software solutions tailored to the needs of modern enterprises.",
                     button: "Learn More",
                     hero: {
-                        badge: "Leading Tech Solutions in USA & LATAM",
-                        title_part1: "Transforming Ideas into",
-                        title_highlight: "Innovative Software",
-                        description: "We develop custom technology solutions that drive your business growth. Experts in software development, cloud computing, AI and automation.",
-                        cta_primary: "Start Project",
+                        badge: "Cyventra, Inc. — A U.S. Software Corporation",
+                        title_part1: "AI Automation That",
+                        title_highlight: "Pays for Itself in Weeks",
+                        description: "We automate one costly, repetitive process in your business — fixed price, live in 1-2 weeks. Then we help you build the custom software to scale it.",
+                        cta_primary: "Start Your Automation Sprint",
                         cta_secondary: "View Solutions"
                     },
                     stats: {
@@ -74,7 +74,7 @@ i18n
                     },
                     footer: {
                         about_title: "About Cyventra",
-                        about_text: "We build custom software solutions for small businesses, startups, and enterprises across the USA & LATAM.",
+                        about_text: "Cyventra, Inc. is a U.S. corporation (Florida) helping small businesses automate work with practical AI and build custom software, powered by an engineering team across Latin America.",
                         about_slogan: "Trusted. Innovative. Reliable.",
                         links_title: "Quick Links",
                         link_home: "Home",
@@ -132,11 +132,11 @@ i18n
                         "Impulsa tu negocio con soluciones de software innovadoras adaptadas a las necesidades de las empresas modernas.",
                     button: "Saber más",
                     hero: {
-                        badge: "Líderes en Soluciones Tecnológicas en USA & LATAM",
-                        title_part1: "Transformando Ideas en",
-                        title_highlight: "Software Innovador",
-                        description: "Desarrollamos soluciones tecnológicas personalizadas que impulsan el crecimiento de tu negocio. Expertos en desarrollo de software, cloud computing, IA y automatización.",
-                        cta_primary: "Comenzar Proyecto",
+                        badge: "Cyventra, Inc. — Corporación de Software de EE.UU.",
+                        title_part1: "Automatización con IA que",
+                        title_highlight: "se paga sola en semanas",
+                        description: "Automatizamos un proceso costoso y repetitivo de tu negocio — precio fijo, funcionando en 1-2 semanas. Luego te ayudamos a construir el software para escalarlo.",
+                        cta_primary: "Inicia tu Sprint de Automatización",
                         cta_secondary: "Ver Soluciones"
                     },
                     stats: {
@@ -185,7 +185,7 @@ i18n
                     },
                     footer: {
                         about_title: "Acerca de Cyventra",
-                        about_text: "Creamos soluciones de software a medida para pequeñas empresas, startups y corporaciones en USA y LATAM.",
+                        about_text: "Cyventra, Inc. es una corporación de Estados Unidos (Florida) que ayuda a pequeñas empresas a automatizar procesos con IA práctica y construir software a la medida, con un equipo de ingeniería en Latinoamérica.",
                         about_slogan: "Confiable. Innovadora. Segura.",
                         links_title: "Enlaces Rápidos",
                         link_home: "Inicio",

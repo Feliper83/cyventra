@@ -34,9 +34,10 @@
 ## SLIDE 4: WHO WE ARE
 - **Company Overview:**
   - Founded: 2024
-  - Location: Colombia (Serving USA & LATAM)
+  - Entity: Cyventra, Inc. — U.S. corporation (Florida)
+  - Location: Engineering team across LATAM
   - Team Size: 10-50 engineers
-  - Mission: Deliver enterprise-grade software at LATAM prices
+  - Mission: Deliver enterprise-grade software backed by a U.S. corporation, powered by LATAM engineering
 
 ---
 
@@ -138,7 +139,7 @@
 ## SLIDE 15: CONTACT INFORMATION
 - **Website:** https://cyventrasoft.com
 - **Email:** contact@cyventrasoft.com
-- **Location:** Colombia (Serving USA & LATAM)
+- **Location:** Cyventra, Inc. — U.S. corporation (Florida), engineering team across LATAM
 - **Social Media:** [Add if available]
 
 ---

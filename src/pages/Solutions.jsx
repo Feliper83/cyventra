@@ -54,12 +54,12 @@ export default function Solutions() {
         : "Nuestras Soluciones de Software - Cyventra";
     
     const pageDescription = lang === 'en'
-        ? "Custom software development, AI solutions, IAM services, and team augmentation. Enterprise-grade solutions at 60% lower cost. Same timezone, bilingual teams."
-        : "Desarrollo de software personalizado, soluciones de IA, servicios IAM y aumento de equipos. Soluciones de nivel empresarial con 60% menos costo. Misma zona horaria, equipos bilingües.";
-    
+        ? "AI automation, custom software, IAM services, and team augmentation from Cyventra, Inc., a U.S. corporation with an engineering team across LATAM. Enterprise-grade quality, 60% lower cost."
+        : "Automatización con IA, software personalizado, servicios IAM y aumento de equipos de Cyventra, Inc., una corporación de EE.UU. con un equipo de ingeniería en LATAM. Calidad empresarial, 60% menos costo.";
+
     const keywords = lang === 'en'
-        ? "custom software development, AI solutions, IAM services, team augmentation, nearshore development, software consulting USA"
-        : "desarrollo de software personalizado, soluciones de IA, servicios IAM, aumento de equipos, desarrollo nearshore, consultoría de software USA";
+        ? "AI automation, custom software development, AI solutions, IAM services, team augmentation, LATAM engineering team, software consulting USA"
+        : "automatización con IA, desarrollo de software personalizado, soluciones de IA, servicios IAM, aumento de equipos, equipo de ingeniería LATAM, consultoría de software USA";
 
     const serviceSchema = {
         "@context": "https://schema.org",
@@ -67,7 +67,7 @@ export default function Solutions() {
         "serviceType": lang === 'en' ? "Software Development" : "Desarrollo de Software",
         "provider": {
             "@type": "Organization",
-            "name": "Cyventra"
+            "name": "Cyventra, Inc."
         },
         "areaServed": "US",
         "hasOfferCatalog": {

@@ -67,7 +67,7 @@ Salud • FinTech • E-commerce • SaaS • Manufactura • EdTech
 
 **Sitio Web:** https://cyventrasoft.com  
 **Email:** contact@cyventrasoft.com  
-**Ubicación:** Colombia (Sirviendo a USA & LATAM)  
+**Ubicación:** Cyventra, Inc. — corporación de EE.UU. (Florida), equipo de ingeniería en LATAM  
 
 **¿Listo para escalar tu equipo de desarrollo?**  
 📧 Agenda una consulta gratuita: contact@cyventrasoft.com

@@ -44,23 +44,23 @@ export default function CareerGrowth() {
 
     const baseUrl = 'https://cyventrasoft.com';
     const pageTitle = lang === 'en'
-        ? "Join Cyventra - Software Development Careers | LATAM"
-        : "Únete a Cyventra - Carreras en Desarrollo de Software | LATAM";
-    
+        ? "Join Cyventra, Inc. - Engineering Careers Across LATAM"
+        : "Únete a Cyventra, Inc. - Carreras de Ingeniería en LATAM";
+
     const pageDescription = lang === 'en'
-        ? "Join Cyventra: Software development careers in LATAM. Remote work, competitive benefits, growth opportunities. iOS, Java, DBA positions available."
-        : "Únete a Cyventra: Carreras en desarrollo de software en LATAM. Trabajo remoto, beneficios competitivos, oportunidades de crecimiento. Posiciones disponibles: iOS, Java, DBA.";
-    
+        ? "Join Cyventra, Inc., a U.S. software corporation building its engineering team across LATAM. Remote work, competitive benefits, growth opportunities. iOS, Java, DBA positions available."
+        : "Únete a Cyventra, Inc., una corporación de software de EE.UU. que construye su equipo de ingeniería en LATAM. Trabajo remoto, beneficios competitivos, oportunidades de crecimiento. Posiciones disponibles: iOS, Java, DBA.";
+
     const keywords = lang === 'en'
-        ? "software developer jobs, remote jobs LATAM, iOS developer, Java developer, DBA jobs"
-        : "trabajos desarrollador software, trabajos remotos LATAM, desarrollador iOS, desarrollador Java, trabajos DBA";
+        ? "software developer jobs LATAM, remote engineering jobs, iOS developer, Java developer, DBA jobs"
+        : "trabajos desarrollador software LATAM, trabajos remotos de ingeniería, desarrollador iOS, desarrollador Java, trabajos DBA";
 
     const jobPostingSchema = {
         "@context": "https://schema.org",
         "@type": "JobPosting",
         "hiringOrganization": {
             "@type": "Organization",
-            "name": "Cyventra"
+            "name": "Cyventra, Inc."
         },
         "jobLocation": {
             "@type": "Place",
