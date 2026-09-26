@@ -22,6 +22,10 @@ provider:
             - logs:CreateLogStream
             - logs:PutLogEvents
           Resource: "arn:aws:logs:*:*:*"
+        - Effect: Allow
+          Action:
+            - ses:SendEmail
+          Resource: "arn:aws:ses:us-east-1:524522256526:identity/cyventrasoft.com"
 
 functions:
   api:

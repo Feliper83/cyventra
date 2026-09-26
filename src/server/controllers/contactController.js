@@ -1,4 +1,5 @@
 import {createContact, fetchContactsByLang} from '../services/contactService.js'
+import {sendContactNotification} from '../services/emailService.js'
 
 export async function geContacts(req, res) {
     try {
@@ -28,6 +29,13 @@ export async function postContact(req, res) {
             message,
             intent: intent || null,
         });
+
+        try {
+            await sendContactNotification({ name, email, phone, message, intent });
+        } catch (emailErr) {
+            console.error('Error sending contact notification email:', emailErr);
+        }
+
         res.status(201).json(newContact);
     } catch (err) {
         console.error('Error creating Contact:', err);
