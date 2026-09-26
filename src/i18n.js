@@ -119,7 +119,8 @@ i18n
                         form_submit: "Send My Request",
                         form_success: "Thanks — we'll reply within 1 business day to confirm.",
                         form_error: "We couldn't send your request. Please try again or email us at contact@cyventrasoft.com.",
-                        trust_note: "Built and supported by Cyventra, Inc., a U.S. corporation."
+                        trust_note: "Built and supported by Cyventra, Inc., a U.S. corporation.",
+                        back_to_options: "← Back"
                     },
                     apply: {
                         title: "Job Application Form",
@@ -257,7 +258,8 @@ i18n
                         form_submit: "Enviar mi Solicitud",
                         form_success: "Gracias — te responderemos en 1 día hábil para confirmar.",
                         form_error: "No pudimos enviar tu solicitud. Intenta de nuevo o escríbenos a contact@cyventrasoft.com.",
-                        trust_note: "Construido y respaldado por Cyventra, Inc., una corporación de Estados Unidos."
+                        trust_note: "Construido y respaldado por Cyventra, Inc., una corporación de Estados Unidos.",
+                        back_to_options: "← Volver"
                     },
                     apply: {
                         title: "Formulario de Aplicación",

@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { apiUrl } from '../config/api.js';
 import { SPRINT_BOOKING_URL, DIAGNOSTIC_PAYMENT_URL } from '../config/entryLinks.js';
@@ -26,7 +26,7 @@ export default function StartSprint() {
     const lang = i18n.language || 'en';
     const baseUrl = 'https://cyventrasoft.com';
 
-    const formRef = useRef(null);
+    const [step, setStep] = useState('select'); // 'select' | 'form'
     const [selectedIntent, setSelectedIntent] = useState('sprint_booking');
     const [form, setForm] = useState({ name: "", email: "", phone: "", message: "" });
     const [submitted, setSubmitted] = useState(false);
@@ -35,7 +35,12 @@ export default function StartSprint() {
 
     const handleSelect = (intent) => {
         setSelectedIntent(intent);
-        formRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        setStep('form');
+    };
+
+    const handleBack = () => {
+        setStep('select');
+        setError("");
     };
 
     const handleChange = (e) => {
@@ -119,49 +124,60 @@ export default function StartSprint() {
 
             <div className="container">
                 <div className="cyv-page-content">
-                    <div className="cyv-grid cyv-grid-2">
-                        <div className="cyv-card">
-                            <span className="cyv-service-badge">{t("sprint.badge_price_short")}</span>
-                            <h3 className="cyv-card-title mt-3">{t("sprint.sprint_card_title")}</h3>
-                            <p className="cyv-card-text" style={{ fontWeight: 600 }}>
-                                {t("sprint.sprint_card_price")} · {t("sprint.sprint_card_timeline")}
-                            </p>
-                            <ul className="cyv-card-text" style={{ paddingLeft: '1.25rem' }}>
-                                <li>{t("sprint.sprint_bullet_1")}</li>
-                                <li>{t("sprint.sprint_bullet_2")}</li>
-                                <li>{t("sprint.sprint_bullet_3")}</li>
-                                <li>{t("sprint.sprint_bullet_4")}</li>
-                            </ul>
-                            <div className="mt-4">
-                                <EntryCTA
-                                    url={SPRINT_BOOKING_URL}
-                                    intent="sprint_booking"
-                                    label={t("sprint.sprint_cta")}
-                                    onSelect={handleSelect}
-                                />
+                    {step === 'select' && (
+                        <div className="cyv-grid cyv-grid-2">
+                            <div className="cyv-card">
+                                <span className="cyv-service-badge">{t("sprint.badge_price_short")}</span>
+                                <h3 className="cyv-card-title mt-3">{t("sprint.sprint_card_title")}</h3>
+                                <p className="cyv-card-text" style={{ fontWeight: 600 }}>
+                                    {t("sprint.sprint_card_price")} · {t("sprint.sprint_card_timeline")}
+                                </p>
+                                <ul className="cyv-card-text" style={{ paddingLeft: '1.25rem' }}>
+                                    <li>{t("sprint.sprint_bullet_1")}</li>
+                                    <li>{t("sprint.sprint_bullet_2")}</li>
+                                    <li>{t("sprint.sprint_bullet_3")}</li>
+                                    <li>{t("sprint.sprint_bullet_4")}</li>
+                                </ul>
+                                <div className="mt-4">
+                                    <EntryCTA
+                                        url={SPRINT_BOOKING_URL}
+                                        intent="sprint_booking"
+                                        label={t("sprint.sprint_cta")}
+                                        onSelect={handleSelect}
+                                    />
+                                </div>
+                            </div>
+
+                            <div className="cyv-card">
+                                <h3 className="cyv-card-title">{t("sprint.diagnostic_card_title")}</h3>
+                                <p className="cyv-card-text" style={{ fontWeight: 600 }}>
+                                    {t("sprint.diagnostic_card_price")}
+                                </p>
+                                <p className="cyv-card-text">{t("sprint.diagnostic_description")}</p>
+                                <div className="mt-4">
+                                    <EntryCTA
+                                        url={DIAGNOSTIC_PAYMENT_URL}
+                                        intent="diagnostic_payment"
+                                        label={t("sprint.diagnostic_cta")}
+                                        onSelect={handleSelect}
+                                    />
+                                </div>
                             </div>
                         </div>
+                    )}
 
-                        <div className="cyv-card">
-                            <h3 className="cyv-card-title">{t("sprint.diagnostic_card_title")}</h3>
-                            <p className="cyv-card-text" style={{ fontWeight: 600 }}>
-                                {t("sprint.diagnostic_card_price")}
-                            </p>
-                            <p className="cyv-card-text">{t("sprint.diagnostic_description")}</p>
-                            <div className="mt-4">
-                                <EntryCTA
-                                    url={DIAGNOSTIC_PAYMENT_URL}
-                                    intent="diagnostic_payment"
-                                    label={t("sprint.diagnostic_cta")}
-                                    onSelect={handleSelect}
-                                />
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="row justify-content-center mt-5" ref={formRef}>
+                    {step === 'form' && (
+                    <div className="row justify-content-center">
                         <div className="col-lg-8">
                             <div className="cyv-card">
+                                <button
+                                    type="button"
+                                    className="cyv-btn cyv-btn-secondary mb-4"
+                                    onClick={handleBack}
+                                >
+                                    {t("sprint.back_to_options")}
+                                </button>
+
                                 <h3 className="cyv-card-title mb-3">{t("sprint.form_heading")}</h3>
                                 <p className="cyv-card-text" style={{ color: 'var(--cyv-primary-light)', fontWeight: 600 }}>
                                     {selectedIntent === 'diagnostic_payment'
@@ -266,6 +282,7 @@ export default function StartSprint() {
                             </div>
                         </div>
                     </div>
+                    )}
                 </div>
             </div>
         </div>
