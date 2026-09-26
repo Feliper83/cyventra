@@ -1,52 +1,34 @@
-# Plantilla de Email - Versión en Español
+# Plantilla de Email en Frío — Versión en Español
+
+> **Cómo usarla**: llena cada `[corchete]` con algo específico del prospecto antes de enviar. Una versión genérica de este correo se lee como spam — la gracia es que se note que sí miraste su negocio 30 segundos.
 
 ---
 
-**Asunto:** Soluciones de Software Empresarial con 60% Menos Costo - Cyventra
+**Asunto (elige uno, o prueba varios si envías más de un puñado):**
+- Una pregunta rápida sobre [proceso específico] en [Empresa]
+- Un proceso de [Empresa], automatizado, en 1-2 semanas
+- [Nombre] — vi [detalle específico de su negocio]
 
 ---
 
 Hola [Nombre],
 
-Espero que este email te encuentre bien. Me comunico para presentarte **Cyventra**, una empresa de desarrollo de software nearshore que entrega soluciones de nivel empresarial con 60% menos costo que equipos onshore.
+[Una frase que muestre que revisaste su negocio — ej. "Vi que [Empresa] recibe nuevos clientes por un formulario de contacto sin seguimiento automático" o "Vi que todavía envían cotizaciones a mano por correo."]
 
-**¿Por qué Cyventra?**
-• **Misma Zona Horaria** - Perfecta alineación con horas de negocio estadounidenses (EST/CST)
-• **60% de Ahorro en Costos** - Calidad empresarial a precios LATAM
-• **Integración Rápida** - Ingenieros senior integrados en 48 horas (vs. 2-4 semanas típicas)
-• **Equipos Bilingües** - Fluidez en Inglés/Español para colaboración fluida
-• **Trayectoria Comprobada** - 50+ proyectos, 30+ clientes, 99% de satisfacción
+Dirijo **Cyventra, Inc.**, una corporación de software de Estados Unidos. Resolvemos exactamente este tipo de cuello de botella con un **Sprint de Automatización con IA** a precio fijo: automatizamos un proceso costoso y repetitivo — captación de leads, atención al cliente, o cotizaciones/facturación — en vivo en **1-2 semanas**, por **$1,500-$2,500**. Precio fijo, alcance fijo, sin contratos largos.
 
-**Nuestros Servicios:**
-✅ **Software Augmentation** - Escala tu equipo con ingenieros senior (5-10+ años)
-✅ **Soluciones de IA** - IA práctica con ROI medible (MVP en 4-6 semanas)
-✅ **Servicios IAM** - Sin tiempo de inactividad, listo para cumplimiento (implementación en 4-6 semanas)
-✅ **Desarrollo de Software Personalizado** - Soluciones escalables y nativas de la nube
+Si aún no tienes claro qué proceso te daría mejor retorno, también ofrecemos un **Diagnóstico** corto y pago ($297-$497) que identifica las 2-3 mejores oportunidades de automatización en tu negocio primero.
 
-**Stack Tecnológico:**
-React 19, Node.js 20, PostgreSQL, AWS Lambda, Serverless, Docker, Kubernetes, TensorFlow, PyTorch, OpenAI API, y más.
+¿Vale la pena echarle un vistazo?
 
-Hemos ayudado a empresas en industrias de salud, FinTech, e-commerce y SaaS a acelerar su desarrollo mientras reducen costos significativamente.
+👉 https://cyventrasoft.com/start-sprint
 
-¿Estarías abierto a una breve llamada de 15 minutos para discutir cómo podemos ayudar a escalar tu equipo de desarrollo o acelerar tu próximo proyecto?
-
-**Próximos Pasos:**
-• Agenda una llamada: [Tu enlace de calendario]
-• Visita nuestro sitio web: https://cyventrasoft.com
-• Responde a este email para iniciar la conversación
-
-Esperando la oportunidad de trabajar juntos.
-
-Saludos cordiales,
+Saludos,
 [Tu Nombre]
-Equipo Cyventra
-
+Cyventra, Inc.
 📧 contact@cyventrasoft.com
 🌐 https://cyventrasoft.com
 
 ---
 
-**P.D.** Ofrecemos una consulta gratuita para evaluar tus necesidades y proporcionar una propuesta personalizada. Sin compromiso requerido.
-
----
-
+**P.D.** Sin presión de ningún lado — si no es el momento, puedes guardar el link para después.

@@ -176,8 +176,8 @@ export default function Home() {
                     <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
                 </div>
-                <div className="cyv-stat-number">50+</div>
-                <div className="cyv-stat-label">{t('stats.projects')}</div>
+                <div className="cyv-stat-number">{t('stats.price_number')}</div>
+                <div className="cyv-stat-label">{t('stats.price_label')}</div>
               </div>
 
               <div className="cyv-stat-card">
@@ -186,8 +186,8 @@ export default function Home() {
                     <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75M13 7a4 4 0 11-8 0 4 4 0 018 0z" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
                 </div>
-                <div className="cyv-stat-number">30+</div>
-                <div className="cyv-stat-label">{t('stats.clients')}</div>
+                <div className="cyv-stat-number">{t('stats.timeline_number')}</div>
+                <div className="cyv-stat-label">{t('stats.timeline_label')}</div>
               </div>
 
               <div className="cyv-stat-card">
@@ -196,8 +196,8 @@ export default function Home() {
                     <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
                 </div>
-                <div className="cyv-stat-number">99%</div>
-                <div className="cyv-stat-label">{t('stats.satisfaction')}</div>
+                <div className="cyv-stat-number">{t('stats.support_number')}</div>
+                <div className="cyv-stat-label">{t('stats.support_label')}</div>
               </div>
             </div>
           </div>

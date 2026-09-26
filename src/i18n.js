@@ -28,9 +28,12 @@ i18n
                         cta_secondary: "View Solutions"
                     },
                     stats: {
-                        projects: "Completed Projects",
-                        clients: "Satisfied Clients",
-                        satisfaction: "Satisfaction"
+                        price_number: "Fixed",
+                        price_label: "Price, Fixed Scope",
+                        timeline_number: "1-2",
+                        timeline_label: "Weeks to Launch",
+                        support_number: "30",
+                        support_label: "Days of Support Included"
                     },
                     navbar: {
                         contact_menu: "Contact"
@@ -168,9 +171,12 @@ i18n
                         cta_secondary: "Ver Soluciones"
                     },
                     stats: {
-                        projects: "Proyectos Completados",
-                        clients: "Clientes Satisfechos",
-                        satisfaction: "Satisfacción"
+                        price_number: "Fijo",
+                        price_label: "Precio, Alcance Fijo",
+                        timeline_number: "1-2",
+                        timeline_label: "Semanas para Lanzar",
+                        support_number: "30",
+                        support_label: "Días de Soporte Incluidos"
                     },
                     navbar: {
                         contact_menu: "Contacto"

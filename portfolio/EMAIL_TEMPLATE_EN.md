@@ -1,52 +1,34 @@
-# Email Template - English Version
+# Cold Email Template — English Version
+
+> **How to use**: fill in every `[bracket]` with something specific to the prospect before sending. A generic version of this email reads as spam — the whole point is that it looks like you actually looked at their business for 30 seconds.
 
 ---
 
-**Subject:** Enterprise Software Solutions at 60% Lower Cost - Cyventra
+**Subject (pick one, A/B test if sending more than a handful):**
+- Quick question about [specific process] at [Company]
+- One process at [Company], automated, in 1-2 weeks
+- [Name] — saw [specific detail about their business]
 
 ---
 
 Hi [Name],
 
-I hope this email finds you well. I'm reaching out to introduce **Cyventra**, a nearshore software development company that delivers enterprise-grade solutions at 60% lower cost than onshore teams.
+[One sentence showing you looked at their business — e.g. "I noticed [Company] handles new-client intake through a contact form with no automatic follow-up" or "Saw you're still sending quotes manually via email."]
 
-**Why Cyventra?**
-• **Same Timezone** - Perfect alignment with US business hours (EST/CST)
-• **60% Cost Savings** - Enterprise quality at LATAM prices
-• **Fast Integration** - Senior engineers integrated in 48 hours (vs. 2-4 weeks typical)
-• **Bilingual Teams** - English/Spanish fluency for seamless collaboration
-• **Proven Track Record** - 50+ projects, 30+ clients, 99% satisfaction
+I run **Cyventra, Inc.**, a U.S. software corporation. We fix exactly this kind of bottleneck with a fixed-price **AI Automation Sprint**: we automate one costly, repetitive workflow — lead intake, customer support responses, or quoting/invoicing — live in **1-2 weeks**, for **$1,500-$2,500**. Fixed price, fixed scope, no long contracts.
 
-**Our Services:**
-✅ **Software Augmentation** - Scale your team with senior engineers (5-10+ years)
-✅ **AI Solutions** - Practical AI with measurable ROI (MVP in 4-6 weeks)
-✅ **IAM Services** - Zero-downtime, compliance-ready (4-6 weeks implementation)
-✅ **Custom Software Development** - Cloud-native, scalable solutions
+If you're not sure yet which process would give you the best return, we also offer a short paid **Diagnostic** ($297-$497) that identifies the top 2-3 automation opportunities in your business first.
 
-**Technology Stack:**
-React 19, Node.js 20, PostgreSQL, AWS Lambda, Serverless, Docker, Kubernetes, TensorFlow, PyTorch, OpenAI API, and more.
+Worth a quick look?
 
-We've helped companies across healthcare, FinTech, e-commerce, and SaaS industries accelerate their development while reducing costs significantly.
+👉 https://cyventrasoft.com/start-sprint
 
-Would you be open to a brief 15-minute call to discuss how we can help scale your development team or accelerate your next project?
-
-**Next Steps:**
-• Schedule a call: [Your calendar link]
-• Visit our website: https://cyventrasoft.com
-• Reply to this email to start the conversation
-
-Looking forward to the opportunity to work together.
-
-Best regards,
+Best,
 [Your Name]
-Cyventra Team
-
+Cyventra, Inc.
 📧 contact@cyventrasoft.com
 🌐 https://cyventrasoft.com
 
 ---
 
-**P.S.** We offer a free consultation to assess your needs and provide a custom proposal. No commitment required.
-
----
-
+**P.S.** No pressure either way — if now isn't the right time, feel free to bookmark the link above for later.
