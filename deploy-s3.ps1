@@ -5,7 +5,7 @@
 param(
     [string]$BucketName = "cyventra-frontend-prod",
     [string]$Region = "us-east-1",
-    [string]$DistributionId = "E1JZ844ZWDOEY2"
+    [string]$DistributionId = "E1H4D0CNWQ86P6"
 )
 
 Write-Host "🚀 Cyventra Frontend Deployment" -ForegroundColor Cyan
