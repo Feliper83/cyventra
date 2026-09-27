@@ -4,9 +4,11 @@ import {Link, useLocation} from "react-router-dom";
 import '../styles/cyventra-theme.css';
 import { useEffect, useState } from 'react';
 import { socialLinks } from "../config/socialLinks";
+import { useLanguage } from "../pages/LanguageProvider.jsx";
 
 export default function Footer() {
     const { t, i18n } = useTranslation();
+    const { setLanguage } = useLanguage();
     const location = useLocation();
     const [isNewDesign, setIsNewDesign] = useState(false);
 
@@ -78,7 +80,7 @@ export default function Footer() {
                         <div className="mt-3">
                             <button
                                 className="btn btn-outline-light btn-sm me-2"
-                                onClick={() => i18n.changeLanguage("en")}
+                                onClick={() => { setLanguage("en"); i18n.changeLanguage("en"); }}
                                 style={{
                                     borderColor: isNewDesign ? 'var(--cyv-primary)' : '',
                                     color: isNewDesign ? 'var(--cyv-primary)' : ''
@@ -88,7 +90,7 @@ export default function Footer() {
                             </button>
                             <button
                                 className="btn btn-outline-light btn-sm"
-                                onClick={() => i18n.changeLanguage("es")}
+                                onClick={() => { setLanguage("es"); i18n.changeLanguage("es"); }}
                                 style={{
                                     borderColor: isNewDesign ? 'var(--cyv-primary)' : '',
                                     color: isNewDesign ? 'var(--cyv-primary)' : ''

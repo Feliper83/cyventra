@@ -15,9 +15,9 @@ export default function JobApplicationForm() {
     });
 
     const positions = [
-        { label: "Full-Stack / Web Engineering", value: 1 },
-        { label: "Mobile Engineering (iOS / Android)", value: 2 },
-        { label: "Database / Data Engineering", value: 3 }
+        { label: "AI Automation & Integration Engineer", value: 1 },
+        { label: "Full-Stack Engineer (React / Node.js)", value: 2 },
+        { label: "AI/ML Solutions Engineer", value: 3 }
     ];
 
     const handleSubmit = async (e) => {
