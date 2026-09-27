@@ -1,6 +1,7 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import ReactMarkdown from "react-markdown";
+import { useEffect, useState } from "react";
 import LazyImage from '../components/LazyImage.jsx';
 import '../styles/cyventra-theme.css';
 
@@ -9,6 +10,17 @@ export default function BlogContent() {
     const navigate = useNavigate();
     const { t, i18n } = useTranslation();
     const lang = i18n.language || "es";
+
+    const [titulo, setTitulo] = useState(state?.titulo);
+    const [contenido, setContenido] = useState(state?.contenido);
+
+    useEffect(() => {
+        const match = state?.translations?.find(tr => tr.lang_code === lang);
+        if (match) {
+            setTitulo(match.title);
+            setContenido(match.content);
+        }
+    }, [lang, state]);
 
     if (!state) {
         return (
@@ -25,7 +37,7 @@ export default function BlogContent() {
         );
     }
 
-    const { titulo, contenido, imagen, autor, fecha } = state;
+    const { imagen, autor, fecha } = state;
 
     return (
         <div className="cyv-page-wrapper">
@@ -177,7 +189,7 @@ export default function BlogContent() {
                                         fontWeight: '500',
                                         border: '1px solid rgba(16, 185, 129, 0.2)'
                                     }}>
-                                        Tecnología
+                                        {lang === 'es' ? 'Tecnología' : 'Technology'}
                                     </span>
                                 </div>
                             </div>

@@ -29,7 +29,7 @@ export default function Cybeblog() {
         fetchBlogs();
     }, [language, i18n.language]);
 
-    const handleClick = (title, description, image, autor, fecha) => {
+    const handleClick = (title, description, image, autor, fecha, translations, slug) => {
         navigate("/blog", {
             state: {
                 titulo: title,
@@ -37,6 +37,8 @@ export default function Cybeblog() {
                 imagen: image,
                 autor: autor || "Cyventra Team",
                 fecha: fecha || new Date().toISOString(),
+                translations: translations || [],
+                slug: slug || null,
             },
         });
     };
@@ -99,7 +101,7 @@ export default function Cybeblog() {
                                 const description = blog.content || "";
 
                                 return (
-                                    <article key={idx} className="cyv-service-card" onClick={() => handleClick(title, description, image, blog.blog_post?.author, blog.blog_post?.published_at)}>
+                                    <article key={idx} className="cyv-service-card" onClick={() => handleClick(title, description, image, blog.blog_post?.author, blog.blog_post?.published_at, blog.blog_post?.translations, blog.blog_post?.slug)}>
                                         {image && (
                                             <div className="mb-3" style={{ position: 'relative', overflow: 'hidden', borderRadius: 'var(--cyv-radius-md)' }}>
                                                 <LazyImage
