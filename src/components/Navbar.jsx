@@ -40,7 +40,7 @@ export default function Navbar() {
 
     return (
         <nav className={navbarClass}>
-            <div className="container-fluid ps-7">
+            <div className="container-fluid ps-lg-7">
                 <Link to="/home" className="cyv-logo-wrapper" style={{ textDecoration: 'none' }}>
                     <CyventraLogo 
                         variant={isMobile ? "icon" : "full"}
