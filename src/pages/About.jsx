@@ -104,6 +104,9 @@ export default function About() {
                     {/* Content Section */}
                     <div className="container py-5">
                         <div className="cyv-page-content">
+                            {!srv.section?.images?.[0]?.image_path && (
+                                <h1 className="cyv-page-title mb-4">{srv.title}</h1>
+                            )}
                             <div className="cyv-card">
                                 <div className="cyv-card-text" style={{ fontSize: '1.125rem', lineHeight: '1.9' }}>
                                     {srv.description}
