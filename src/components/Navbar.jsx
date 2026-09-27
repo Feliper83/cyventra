@@ -13,12 +13,16 @@ export default function Navbar() {
     const location = useLocation();
     const [isNewDesign, setIsNewDesign] = useState(false);
     const [isMobile, setIsMobile] = useState(false);
+    const [menuOpen, setMenuOpen] = useState(false);
 
     useEffect(() => {
         const newDesignRoutes = ['/home', '/solutions', '/about', '/career', '/contact', '/blogs', '/blog', '/solution', '/start-sprint'];
         const isApplyRoute = location.pathname.startsWith('/apply/');
         setIsNewDesign(newDesignRoutes.includes(location.pathname) || isApplyRoute);
-        
+
+        // Close the mobile menu on every navigation so it doesn't stay open over the new page
+        setMenuOpen(false);
+
         // Check if mobile for logo variant
         const checkMobile = () => {
             setIsMobile(window.innerWidth < 400);
@@ -53,16 +57,15 @@ export default function Navbar() {
                 <button
                     className="navbar-toggler"
                     type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#navbarNavDropdown"
                     aria-controls="navbarNavDropdown"
-                    aria-expanded="false"
+                    aria-expanded={menuOpen}
                     aria-label="Toggle navigation"
+                    onClick={() => setMenuOpen((prev) => !prev)}
                 >
                     <span className="navbar-toggler-icon"></span>
                 </button>
 
-                <div className="collapse navbar-collapse" id="navbarNavDropdown">
+                <div className={`collapse navbar-collapse${menuOpen ? ' show' : ''}`} id="navbarNavDropdown">
                     <ul className="navbar-nav ms-auto">
                         <Link className="nav-link" to="/home">{t("home")}</Link>
                         <Link className="nav-link" to="/solutions">{t("solutions")}</Link>
