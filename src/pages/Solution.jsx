@@ -1,7 +1,8 @@
 import { useLocation, useNavigate } from "react-router-dom";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import ReactMarkdown from "react-markdown";
 import { useTranslation } from "react-i18next";
+import { apiUrl } from '../config/api.js';
 import SEOHead from '../components/SEOHead.jsx';
 import StructuredData from '../components/StructuredData.jsx';
 import '../styles/cyventra-theme.css';
@@ -9,7 +10,25 @@ import '../styles/cyventra-theme.css';
 export default function Solution() {
     const { state } = useLocation();
     const navigate = useNavigate();
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
+
+    const [title, setTitle] = useState(state?.title);
+    const [description, setDescription] = useState(state?.description);
+
+    useEffect(() => {
+        if (!state?.slug) return;
+        const lang = i18n.language || 'en';
+        fetch(apiUrl(`/api/services?lang_code=${lang}`))
+            .then(res => res.json())
+            .then(data => {
+                const match = Array.isArray(data) ? data.find(s => s.service?.slug === state.slug) : null;
+                if (match) {
+                    setTitle(match.name);
+                    setDescription(match.details);
+                }
+            })
+            .catch(() => {});
+    }, [i18n.language, state]);
 
     if (!state) {
         return (
@@ -28,8 +47,7 @@ export default function Solution() {
         );
     }
 
-    const { title, description, image, slug } = state;
-    const { i18n } = useTranslation();
+    const { image, slug } = state;
     const lang = i18n.language || 'en';
     const baseUrl = 'https://cyventrasoft.com';
 
