@@ -68,9 +68,11 @@ export default function StartSprint() {
             setForm({ name: "", email: "", phone: "", message: "" });
             setSubmitted(true);
             setTimeout(() => setSubmitted(false), 5000);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         } catch (err) {
             console.error("Start Sprint form error:", err);
             setError(t("sprint.form_error"));
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         } finally {
             setSubmitting(false);
         }

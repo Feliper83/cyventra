@@ -44,11 +44,13 @@ export default function Contact() {
             setForm({ name: "", email: "", phone: "", message: "" });
             setSubmitted(true);
             setTimeout(() => setSubmitted(false), 5000);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         } catch (err) {
             console.error("Contact form error:", err);
             setError(
                 t("contact.error", "We couldn't send your message. Please try again or email us at contact@cyventrasoft.com.")
             );
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         } finally {
             setSubmitting(false);
         }

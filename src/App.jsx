@@ -3,6 +3,7 @@ import Home from './pages/Home'
 import About from './pages/About.jsx'
 import Footer from "./components/Footer.jsx";
 import Navbar from "./components/Navbar.jsx";
+import ScrollToTop from "./components/ScrollToTop.jsx";
 import Solutions from "./pages/Solutions.jsx";
 import CybeBlog from "./pages/Cybeblog.jsx";
 import BlogContent from "./pages/BlogContent.jsx";
@@ -17,6 +18,7 @@ import StartSprint from "./pages/StartSprint.jsx";
 function App() {
     return (
         <LanguageProvider>
+            <ScrollToTop/>
             <Navbar/>
             <main>
                 <Routes>
