@@ -34,6 +34,7 @@ CREATE TABLE IF NOT EXISTS cyventra.service (
     slug VARCHAR(100) UNIQUE NOT NULL,
     icon_path VARCHAR(255),
     display_order INTEGER DEFAULT 0,
+    category VARCHAR(20) NOT NULL DEFAULT 'service',
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );

@@ -27,8 +27,8 @@ export default function Solutions() {
 
                 const srvData = await srvRes.json();
                 const secData = await secRes.json();
-                setServices(srvData);
-                setSection(secData[0] || { title: "Soluciones" });
+                setServices(Array.isArray(srvData) ? srvData.filter(s => s.service?.category !== 'product') : []);
+                setSection(secData[0] || { title: "Servicios" });
             } catch (e) {
                 console.error(e);
                 setServices([]);
@@ -51,16 +51,16 @@ export default function Solutions() {
 
     const baseUrl = 'https://cyventrasoft.com';
     const pageTitle = lang === 'en'
-        ? "Our Software Solutions - Cyventra"
-        : "Nuestras Soluciones de Software - Cyventra";
-    
+        ? "Our Services - Cyventra"
+        : "Nuestros Servicios - Cyventra";
+
     const pageDescription = lang === 'en'
-        ? "AI automation, custom software, IAM services, and team augmentation from Cyventra, Inc., a U.S. corporation with an engineering team across LATAM. Enterprise-grade quality, 60% lower cost."
-        : "Automatización con IA, software personalizado, servicios IAM y aumento de equipos de Cyventra, Inc., una corporación de EE.UU. con un equipo de ingeniería en LATAM. Calidad empresarial, 60% menos costo.";
+        ? "Custom software, AI solutions, IAM services, and team augmentation from Cyventra, Inc., a U.S. corporation with an engineering team across LATAM. Enterprise-grade quality, 60% lower cost."
+        : "Software personalizado, soluciones de IA, servicios IAM y aumento de equipos de Cyventra, Inc., una corporación de EE.UU. con un equipo de ingeniería en LATAM. Calidad empresarial, 60% menos costo.";
 
     const keywords = lang === 'en'
-        ? "AI automation, custom software development, AI solutions, IAM services, team augmentation, LATAM engineering team, software consulting USA"
-        : "automatización con IA, desarrollo de software personalizado, soluciones de IA, servicios IAM, aumento de equipos, equipo de ingeniería LATAM, consultoría de software USA";
+        ? "custom software development, AI solutions, IAM services, team augmentation, LATAM engineering team, software consulting USA"
+        : "desarrollo de software personalizado, soluciones de IA, servicios IAM, aumento de equipos, equipo de ingeniería LATAM, consultoría de software USA";
 
     const serviceSchema = {
         "@context": "https://schema.org",
@@ -136,9 +136,7 @@ export default function Solutions() {
                                         />
                                         <div className="cyv-service-image-overlay">
                                             <span className="cyv-service-badge">
-                                                {service.service?.slug === 'ai-automation-sprint'
-                                                    ? t('sprint.badge_price_short')
-                                                    : service.service?.slug}
+                                                {service.service?.slug}
                                             </span>
                                         </div>
                                     </div>

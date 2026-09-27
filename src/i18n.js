@@ -8,9 +8,12 @@ i18n
             en: {
                 translation: {
                     home: "Home",
-                    solutions: "Solutions",
-                    solutions_title: "Our Solutions",
+                    solutions: "Services",
+                    solutions_title: "Our Services",
                     solutions_view: "View more",
+                    products: "Products",
+                    products_title: "Our Products",
+                    products_subtitle: "Fixed-price, fixed-scope offers you can start this week.",
                     about: "About Us",
                     growth: "Professional growth",
                     blog: "Blog",
@@ -25,7 +28,7 @@ i18n
                         title_highlight: "Pays for Itself in Weeks",
                         description: "We automate one costly, repetitive process in your business — fixed price, live in 1-2 weeks. Then we help you build the custom software to scale it.",
                         cta_primary: "Start Your Automation Sprint",
-                        cta_secondary: "View Solutions"
+                        cta_secondary: "View Services"
                     },
                     stats: {
                         price_number: "Fixed",
@@ -82,7 +85,8 @@ i18n
                         about_slogan: "Trusted. Innovative. Reliable.",
                         links_title: "Quick Links",
                         link_home: "Home",
-                        link_solutions: "Solutions",
+                        link_solutions: "Services",
+                        link_products: "Products",
                         link_abouts: "Acerca de",
                         link_careers: "Career Growth",
                         link_blogs: "Blogs",
@@ -94,7 +98,7 @@ i18n
                         subtitle: "Solution",
                         not_found: "Content not found.",
                         back: "Back",
-                        back_to_solutions: "← Back to Solutions",
+                        back_to_solutions: "← Back to Services",
                         tag_blog: "Blog",
                         tag_technology: "Technology",
                         cta_request_service: "Request This Service",
@@ -151,9 +155,12 @@ i18n
             es: {
                 translation: {
                     home: "Inicio",
-                    solutions: "Soluciones",
-                    solutions_title: "Nuestras Soluciones",
+                    solutions: "Servicios",
+                    solutions_title: "Nuestros Servicios",
                     solutions_view: "Ver más",
+                    products: "Productos",
+                    products_title: "Nuestros Productos",
+                    products_subtitle: "Ofertas de precio y alcance fijo que puedes iniciar esta semana.",
                     about: "Sobre nosotros",
                     growth: "Crecimiento profesional",
                     blog: "Blog",
@@ -168,7 +175,7 @@ i18n
                         title_highlight: "se paga sola en semanas",
                         description: "Automatizamos un proceso costoso y repetitivo de tu negocio — precio fijo, funcionando en 1-2 semanas. Luego te ayudamos a construir el software para escalarlo.",
                         cta_primary: "Inicia tu Sprint de Automatización",
-                        cta_secondary: "Ver Soluciones"
+                        cta_secondary: "Ver Servicios"
                     },
                     stats: {
                         price_number: "Fijo",
@@ -224,7 +231,8 @@ i18n
                         about_slogan: "Confiable. Innovadora. Segura.",
                         links_title: "Enlaces Rápidos",
                         link_home: "Inicio",
-                        link_solutions: "Soluciones",
+                        link_solutions: "Servicios",
+                        link_products: "Productos",
                         link_abouts: "Acerca de",
                         link_careers: "Carrera",
                         link_blogs: "Blogs",
@@ -236,7 +244,7 @@ i18n
                         subtitle: "Solución",
                         not_found: "No se encontró el contenido del artículo.",
                         back: "Volver",
-                        back_to_solutions: "← Volver a Solutions",
+                        back_to_solutions: "← Volver a Servicios",
                         tag_blog: "Blog",
                         tag_technology: "Tecnología",
                         cta_request_service: "Solicitar Este Servicio",

@@ -2,9 +2,9 @@ import db from '../db.js'
 
 export async function fetchServicesByLang(langCode) {
     const result = await db.query(`
-        SELECT 
+        SELECT
             st.id, st.service_id, st.lang_code, st.name, st.summary, st.details,
-            s.slug, s.icon_path, s.display_order
+            s.slug, s.icon_path, s.display_order, s.category
         FROM cyventra.service_translation st
         JOIN cyventra.service s ON s.id = st.service_id
         WHERE st.lang_code = $1
@@ -23,7 +23,8 @@ export async function fetchServicesByLang(langCode) {
             id: row.service_id,
             slug: row.slug,
             icon_path: row.icon_path,
-            display_order: row.display_order
+            display_order: row.display_order,
+            category: row.category
         }
     }));
 }

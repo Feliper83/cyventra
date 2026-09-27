@@ -13,7 +13,7 @@ export default function Footer() {
     const [isNewDesign, setIsNewDesign] = useState(false);
 
     useEffect(() => {
-        const newDesignRoutes = ['/home', '/solutions', '/about', '/career', '/contact', '/blogs', '/blog', '/solution', '/start-sprint'];
+        const newDesignRoutes = ['/home', '/solutions', '/products', '/about', '/career', '/contact', '/blogs', '/blog', '/solution', '/start-sprint'];
         const isApplyRoute = location.pathname.startsWith('/apply/');
         setIsNewDesign(newDesignRoutes.includes(location.pathname) || isApplyRoute);
     }, [location]);
@@ -43,6 +43,7 @@ export default function Footer() {
                         </h6>
                         <ul className="list-unstyled">
                             <li><Link to="/home">{t("footer.link_home")}</Link></li>
+                            <li><Link to="/products">{t("footer.link_products")}</Link></li>
                             <li><Link to="/solutions">{t("footer.link_solutions")}</Link></li>
                             <li><Link to="/about">{t("footer.link_abouts")}</Link></li>
                             <li><Link to="/career">{t("footer.link_careers")}</Link></li>

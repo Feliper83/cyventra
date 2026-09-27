@@ -5,6 +5,7 @@ import Footer from "./components/Footer.jsx";
 import Navbar from "./components/Navbar.jsx";
 import ScrollToTop from "./components/ScrollToTop.jsx";
 import Solutions from "./pages/Solutions.jsx";
+import Products from "./pages/Products.jsx";
 import CybeBlog from "./pages/Cybeblog.jsx";
 import BlogContent from "./pages/BlogContent.jsx";
 import "./i18n";
@@ -25,6 +26,7 @@ function App() {
                     <Route path="/" element={<Navigate to="/home" replace />} />
                     <Route path="/home" element={<Home />} />
                     <Route path="/solutions" element={<Solutions />} />
+                    <Route path="/products" element={<Products />} />
                     <Route path="/solution" element={<Solution />} />
                     <Route path="/about" element={<About />} />
                     <Route path="/career" element={<CareerGrowth />} />

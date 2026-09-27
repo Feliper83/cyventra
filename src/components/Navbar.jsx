@@ -16,7 +16,7 @@ export default function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false);
 
     useEffect(() => {
-        const newDesignRoutes = ['/home', '/solutions', '/about', '/career', '/contact', '/blogs', '/blog', '/solution', '/start-sprint'];
+        const newDesignRoutes = ['/home', '/solutions', '/products', '/about', '/career', '/contact', '/blogs', '/blog', '/solution', '/start-sprint'];
         const isApplyRoute = location.pathname.startsWith('/apply/');
         setIsNewDesign(newDesignRoutes.includes(location.pathname) || isApplyRoute);
 
@@ -68,6 +68,7 @@ export default function Navbar() {
                 <div className={`collapse navbar-collapse${menuOpen ? ' show' : ''}`} id="navbarNavDropdown">
                     <ul className="navbar-nav ms-auto">
                         <Link className="nav-link" to="/home">{t("home")}</Link>
+                        <Link className="nav-link" to="/products">{t("products")}</Link>
                         <Link className="nav-link" to="/solutions">{t("solutions")}</Link>
                         <Link className="nav-link" to="/about">{t("about")}</Link>
                         <Link className="nav-link" to="/career">{t("growth")}</Link>
