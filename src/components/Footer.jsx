@@ -3,6 +3,7 @@ import "../i18n";
 import {Link, useLocation} from "react-router-dom";
 import '../styles/cyventra-theme.css';
 import { useEffect, useState } from 'react';
+import { socialLinks } from "../config/socialLinks";
 
 export default function Footer() {
     const { t, i18n } = useTranslation();
@@ -58,10 +59,9 @@ export default function Footer() {
                             </a>
                         </p>
                         <div className="d-flex mb-3">
-                            <a href="#"><i className="fab fa-facebook fa-2x me-3"></i></a>
-                            <a href="#"><i className="fab fa-twitter fa-2x me-3"></i></a>
-                            <a href="#"><i className="fab fa-instagram fa-2x me-3"></i></a>
-                            <a href="#"><i className="fab fa-linkedin fa-2x"></i></a>
+                            <a href={socialLinks.linkedin} target="_blank" rel="noreferrer">
+                                <i className="fab fa-linkedin fa-2x"></i>
+                            </a>
                         </div>
                         <Link 
                             className="btn btn-sm" 
