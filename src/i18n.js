@@ -13,7 +13,7 @@ i18n
                     solutions_view: "View more",
                     about: "About Us",
                     growth: "Professional growth",
-                    blog: "CybeBlog",
+                    blog: "Blog",
                     title: "Software Solutions For",
                     subtitle: "Small Business, Startups, Enterprise",
                     description:
@@ -63,7 +63,7 @@ i18n
                         intent_note: "You're inquiring about: {{service}}"
                     },
                     jobs: {
-                      title: "Employment opportunities",
+                      title: "Join Our Nearshore Talent Network",
                         applyPosition:"Apply Now"
                     },
                     benefit:{
@@ -134,8 +134,8 @@ i18n
                         email_placeholder: "Enter your email",
                         phone: "Phone",
                         phone_placeholder: "Enter your phone number",
-                        position: "Position Applying For",
-                        position_placeholder: "Select a position",
+                        position: "Area of Expertise",
+                        position_placeholder: "Select your area of expertise",
                         resume_url: "Resume URL",
                         resume_url_placeholder: "Enter your resume URL",
                         cover_letter: "Cover Letter",
@@ -156,7 +156,7 @@ i18n
                     solutions_view: "Ver más",
                     about: "Sobre nosotros",
                     growth: "Crecimiento profesional",
-                    blog: "CybeBlog",
+                    blog: "Blog",
                     title: "Soluciones de Software Para",
                     subtitle: "Pequeñas Empresas, Startups, Corporaciones",
                     description:
@@ -205,7 +205,7 @@ i18n
                         intent_note: "Estás consultando por: {{service}}"
                     },
                     jobs: {
-                        title: "Opotunidades de empleo",
+                        title: "Únete a Nuestra Red de Talento Nearshore",
                         applyPosition:"Aplicar"
                     },
                     benefit:{
@@ -276,8 +276,8 @@ i18n
                         email_placeholder: "Ingresa tu correo electrónico",
                         phone: "Teléfono",
                         phone_placeholder: "Ingresa tu número de teléfono",
-                        position: "Posición a la que Aplicas",
-                        position_placeholder: "Selecciona una posición",
+                        position: "Área de Experiencia",
+                        position_placeholder: "Selecciona tu área de experiencia",
                         resume_url: "URL del Currículum",
                         resume_url_placeholder: "Ingresa la URL de tu currículum",
                         cover_letter: "Carta de Presentación",

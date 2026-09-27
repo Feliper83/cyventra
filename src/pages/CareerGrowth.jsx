@@ -5,7 +5,6 @@ import { useNavigate } from "react-router-dom";
 import { apiUrl } from '../config/api.js';
 import LazyImage from '../components/LazyImage.jsx';
 import SEOHead from '../components/SEOHead.jsx';
-import StructuredData from '../components/StructuredData.jsx';
 import '../styles/cyventra-theme.css';
 
 export default function CareerGrowth() {
@@ -44,34 +43,19 @@ export default function CareerGrowth() {
 
     const baseUrl = 'https://cyventrasoft.com';
     const pageTitle = lang === 'en'
-        ? "Join Cyventra, Inc. - Engineering Careers Across LATAM"
-        : "Únete a Cyventra, Inc. - Carreras de Ingeniería en LATAM";
+        ? "Join Our Nearshore Talent Network - Cyventra, Inc."
+        : "Únete a Nuestra Red de Talento Nearshore - Cyventra, Inc.";
 
     const pageDescription = lang === 'en'
-        ? "Join Cyventra, Inc., a U.S. software corporation building its engineering team across LATAM. Remote work, competitive benefits, growth opportunities. iOS, Java, DBA positions available."
-        : "Únete a Cyventra, Inc., una corporación de software de EE.UU. que construye su equipo de ingeniería en LATAM. Trabajo remoto, beneficios competitivos, oportunidades de crecimiento. Posiciones disponibles: iOS, Java, DBA.";
+        ? "Cyventra, Inc., a U.S. software corporation, is building an ongoing network of LATAM engineering talent for upcoming client projects. Remote work, competitive benefits."
+        : "Cyventra, Inc., una corporación de software de EE.UU., está construyendo una red permanente de talento de ingeniería en LATAM para futuros proyectos con clientes. Trabajo remoto, beneficios competitivos.";
 
     const keywords = lang === 'en'
-        ? "software developer jobs LATAM, remote engineering jobs, iOS developer, Java developer, DBA jobs"
-        : "trabajos desarrollador software LATAM, trabajos remotos de ingeniería, desarrollador iOS, desarrollador Java, trabajos DBA";
+        ? "nearshore talent network, remote engineering jobs LATAM, full-stack developer, mobile developer, database engineer"
+        : "red de talento nearshore, trabajos remotos de ingeniería LATAM, desarrollador full-stack, desarrollador mobile, ingeniero de bases de datos";
 
-    const jobPostingSchema = {
-        "@context": "https://schema.org",
-        "@type": "JobPosting",
-        "hiringOrganization": {
-            "@type": "Organization",
-            "name": "Cyventra, Inc."
-        },
-        "jobLocation": {
-            "@type": "Place",
-            "address": {
-                "@type": "PostalAddress",
-                "addressCountry": "CO"
-            }
-        },
-        "employmentType": "FULL_TIME",
-        "workHours": "Remote"
-    };
+    // Note: schema.org JobPosting is meant for specific, time-bound openings, not an
+    // ongoing talent-network signup, so no JobPosting structured data is emitted here.
 
     return (
         <div className="cyv-page-wrapper">
@@ -81,7 +65,6 @@ export default function CareerGrowth() {
                 keywords={keywords}
                 ogImage={`${baseUrl}/images/og-career.jpg`}
             />
-            <StructuredData data={jobPostingSchema} />
             {/* Page Header */}
             <div className="cyv-page-header">
                 <div className="container">

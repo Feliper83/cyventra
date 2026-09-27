@@ -15,9 +15,9 @@ export default function JobApplicationForm() {
     });
 
     const positions = [
-        { label: "iOS Developer (Swift, SwiftUI)", value: 1 },
-        { label: "Backend Java Developer (Java 8/17, Spring Boot, Microservices, Angular)", value: 2 },
-        { label: "Oracle Database Administrator (DBA)", value: 3 }
+        { label: "Full-Stack / Web Engineering", value: 1 },
+        { label: "Mobile Engineering (iOS / Android)", value: 2 },
+        { label: "Database / Data Engineering", value: 3 }
     ];
 
     const handleSubmit = async (e) => {
